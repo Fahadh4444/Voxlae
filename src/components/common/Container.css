@@ -1,0 +1,29 @@
+/* Container — Component styles */
+
+.vx-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--vx-space-6) var(--vx-space-6);
+}
+
+.vx-container--sm {
+  max-width: 640px;
+}
+
+.vx-container--md {
+  max-width: 900px;
+}
+
+.vx-container--lg {
+  max-width: 1200px;
+}
+
+.vx-container--full {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .vx-container {
+    padding: var(--vx-space-4) var(--vx-space-4);
+  }
+}

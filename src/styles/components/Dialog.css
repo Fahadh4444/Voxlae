@@ -1,0 +1,118 @@
+/* Dialog — generic modal shell (see Dialog.tsx) */
+
+.vx-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(17, 20, 24, 0.55);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: vx-dialog-fade 0.15s ease;
+}
+
+@keyframes vx-dialog-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.vx-dialog {
+  background: var(--vx-surface);
+  border-radius: 16px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 60px rgba(17, 20, 24, 0.25);
+  outline: none;
+  animation: vx-dialog-rise 0.18s ease;
+}
+
+@keyframes vx-dialog-rise {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.vx-dialog--md { max-width: 520px; }
+.vx-dialog--lg { max-width: 720px; }
+
+.vx-dialog__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px 16px;
+  border-bottom: 1px solid var(--vx-gray-100);
+}
+
+.vx-dialog__title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.vx-dialog__description {
+  margin: 4px 0 0;
+  font-size: 0.88rem;
+  color: var(--vx-gray-500);
+  line-height: 1.5;
+}
+
+.vx-dialog__close {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--vx-gray-500);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.vx-dialog__close:hover {
+  background: var(--vx-gray-100);
+  color: var(--vx-gray-900);
+}
+
+/* Only the body scrolls — header and action bar stay put */
+.vx-dialog__body {
+  padding: 22px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.vx-dialog__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--vx-gray-100);
+  background: var(--vx-gray-50);
+  border-radius: 0 0 16px 16px;
+}
+
+/* A centred box is unusable on a phone — go full-screen instead */
+@media (max-width: 640px) {
+  .vx-dialog-overlay { padding: 0; }
+  .vx-dialog {
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  .vx-dialog__footer { border-radius: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vx-dialog-overlay,
+  .vx-dialog { animation: none; }
+  .vx-dialog__close { transition: none; }
+}

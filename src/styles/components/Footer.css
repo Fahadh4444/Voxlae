@@ -1,0 +1,408 @@
+/* ============================================
+   VOXLAE Footer (Professional SaaS)
+   ============================================ */
+
+.vx-footer {
+  background: var(--vx-primary);
+  color: var(--vx-white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Wave transition from dark section */
+.vx-footer__wave {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  background: linear-gradient(180deg, #1A2D5A 0%, #1A2D5A 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.vx-footer__wave-svg {
+  width: 100%;
+  height: 120px;
+  display: block;
+}
+
+/* Logo positioned at apex of curve */
+.vx-footer__brand {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -60px;
+  padding-bottom: var(--vx-space-8);
+  z-index: 10;
+}
+
+.vx-footer__logo-circle {
+  width: 88px;
+  height: 88px;
+  background: var(--vx-surface);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 8px 32px rgba(0,0,0,0.25),
+    0 0 0 4px rgba(255,255,255,0.2);
+  animation: footerLogoBounce 3s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.vx-footer__logo-circle:hover {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.vx-footer__brand-name {
+  margin-top: var(--vx-space-3);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--vx-white);
+  letter-spacing: 2px;
+}
+
+@keyframes footerLogoBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.vx-footer__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--vx-space-6) var(--vx-space-8);
+  position: relative;
+  z-index: 2;
+}
+
+.vx-footer__tagline {
+  font-size: var(--vx-font-lg);
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  margin-bottom: var(--vx-space-4);
+  font-weight: 500;
+}
+
+/* Social links */
+.vx-footer__social {
+  display: flex;
+  justify-content: center;
+  gap: var(--vx-space-3);
+  margin-bottom: var(--vx-space-10);
+}
+
+.vx-footer__social-link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  color: var(--vx-white);
+  transition: all 0.3s ease;
+}
+
+.vx-footer__social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+.vx-footer__social-link:hover {
+  background: var(--vx-surface);
+  color: var(--vx-primary);
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* Bottom section */
+.vx-footer__bottom-section {
+  text-align: center;
+  padding-top: var(--vx-space-8);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-top: var(--vx-space-8);
+}
+
+/* Links grid */
+.vx-footer__links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--vx-space-8);
+}
+
+.vx-footer__col-title {
+  font-size: var(--vx-font-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: var(--vx-space-4);
+}
+
+.vx-footer__col-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-3);
+}
+
+.vx-footer__col-list a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: var(--vx-font-sm);
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.vx-footer__col-list a:hover {
+  color: var(--vx-white);
+  transform: translateX(4px);
+  text-decoration: underline;
+}
+
+/* Copyright bar */
+.vx-footer__copyright {
+  background: rgba(0,0,0,0.15);
+  padding: var(--vx-space-4) var(--vx-space-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vx-space-4);
+  flex-wrap: wrap;
+  font-size: var(--vx-font-xs);
+  color: rgba(255,255,255,0.7);
+  position: relative;
+  z-index: 2;
+}
+
+.vx-footer__copyright p {
+  margin: 0;
+}
+
+.vx-footer__legal-links {
+  display: flex;
+  gap: var(--vx-space-4);
+}
+
+.vx-footer__legal-links a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.vx-footer__legal-links a:hover {
+  color: var(--vx-white);
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .vx-footer {
+    margin-top: 0;
+  }
+
+  .vx-footer__hill {
+    top: -80px;
+    height: 160px;
+  }
+
+  .vx-footer__hill-svg {
+    height: 160px;
+  }
+
+  .vx-footer__hill-logo {
+    top: 20px;
+  }
+
+  .vx-footer__logo-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .vx-footer__logo-circle svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .vx-footer__inner {
+    padding-top: 60px;
+  }
+
+  .vx-footer__links {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+  }
+
+  .vx-footer__col-list a:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .vx-footer__brand {
+    margin-top: -50px;
+  }
+  
+  .vx-footer__logo-circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .vx-footer__inner {
+    padding: var(--vx-space-12) var(--vx-space-4) var(--vx-space-6);
+  }
+
+  .vx-footer__links {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--vx-space-6);
+  }
+
+  .vx-footer__social-link {
+    width: 40px;
+    height: 40px;
+  }
+
+  .vx-footer__copyright {
+    flex-direction: column;
+    gap: var(--vx-space-2);
+  }
+  
+  .vx-footer__globe {
+    width: 250px;
+    height: 250px;
+    right: -80px;
+    bottom: 100px;
+  }
+}
+
+/* ============================================
+   FOOTER ANIMATED GLOBE NETWORK
+   ============================================ */
+
+.vx-footer__globe {
+  position: absolute;
+  right: -50px;
+  bottom: 150px;
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.vx-footer__globe-svg {
+  width: 100%;
+  height: 100%;
+  animation: globeRotate 60s linear infinite;
+}
+
+/* Rings */
+.vx-footer__ring {
+  fill: none;
+  stroke: rgba(255,255,255,0.15);
+  stroke-width: 1;
+}
+
+.vx-footer__ring--outer {
+  stroke-dasharray: 10 5;
+  animation: ringPulse 4s ease-in-out infinite;
+}
+
+.vx-footer__ring--middle {
+  stroke-dasharray: 5 10;
+  animation: ringPulse 4s ease-in-out infinite 1s;
+}
+
+.vx-footer__ring--inner {
+  stroke-dasharray: 3 8;
+  animation: ringPulse 4s ease-in-out infinite 2s;
+}
+
+@keyframes ringPulse {
+  0%, 100% { stroke-opacity: 0.15; transform-origin: center; }
+  50% { stroke-opacity: 0.35; }
+}
+
+/* Orbiting dots */
+.vx-footer__orbit {
+  fill: rgba(255,255,255,0.8);
+  animation: orbitGlow 2s ease-in-out infinite;
+}
+
+.vx-footer__orbit--1 { animation-delay: 0s; }
+.vx-footer__orbit--2 { animation-delay: 0.4s; }
+.vx-footer__orbit--3 { animation-delay: 0.8s; }
+.vx-footer__orbit--4 { animation-delay: 1.2s; }
+.vx-footer__orbit--5 { animation-delay: 1.6s; }
+
+@keyframes orbitGlow {
+  0%, 100% { opacity: 0.5; r: 5; }
+  50% { opacity: 1; r: 8; }
+}
+
+/* Connection lines */
+.vx-footer__connection {
+  stroke: rgba(255,255,255,0.2);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  animation: connectionFlow 3s linear infinite;
+}
+
+@keyframes connectionFlow {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -20; }
+}
+
+/* Center pulse */
+.vx-footer__center-pulse {
+  fill: none;
+  stroke: rgba(255,255,255,0.3);
+  stroke-width: 2;
+  animation: centerPulseExpand 2s ease-out infinite;
+}
+
+.vx-footer__center-dot {
+  fill: rgba(255,255,255,0.6);
+  animation: centerDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes centerPulseExpand {
+  0% { r: 15; opacity: 0.6; }
+  100% { r: 60; opacity: 0; }
+}
+
+@keyframes centerDotPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes globeRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 1024px) {
+  .vx-footer__globe {
+    width: 300px;
+    height: 300px;
+    right: -100px;
+    bottom: 120px;
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 640px) {
+  .vx-footer__globe {
+    width: 200px;
+    height: 200px;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: auto;
+    top: 80px;
+    opacity: 0.2;
+  }
+}

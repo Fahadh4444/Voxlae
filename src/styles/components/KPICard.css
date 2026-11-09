@@ -1,0 +1,192 @@
+/* ============================================
+   VOXLAE KPICard — Premium Analytics Card
+   ============================================ */
+
+.vx-kpi-card {
+  position: relative;
+  background: var(--vx-surface);
+  border-radius: var(--vx-radius-xl);
+  padding: var(--vx-space-5);
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--vx-gray-100);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.vx-kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 8px 24px rgba(0, 0, 0, 0.04);
+  border-color: var(--vx-gray-200);
+}
+
+/* ── Content Layout ───────────────────────── */
+
+.vx-kpi-card__content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--vx-space-4);
+}
+
+.vx-kpi-card__icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--vx-radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.vx-kpi-card:hover .vx-kpi-card__icon {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.vx-kpi-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.vx-kpi-card__data {
+  flex: 1;
+  min-width: 0;
+}
+
+.vx-kpi-card__value-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--vx-space-2);
+  flex-wrap: wrap;
+}
+
+.vx-kpi-card__value {
+  font-size: var(--vx-font-2xl);
+  font-weight: 800;
+  color: var(--vx-gray-900);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.vx-kpi-card__label {
+  display: block;
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-500);
+  margin-top: var(--vx-space-1);
+}
+
+/* ── Change Indicator ─────────────────────── */
+
+.vx-kpi-card__change {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vx-space-1);
+  padding: 2px 8px;
+  border-radius: var(--vx-radius-full);
+  font-size: var(--vx-font-xs);
+  font-weight: 600;
+}
+
+.vx-kpi-card__change--positive {
+  background: var(--vx-success-bg);
+  color: var(--vx-success);
+}
+
+.vx-kpi-card__change--negative {
+  background: var(--vx-error-bg);
+  color: var(--vx-error);
+}
+
+.vx-kpi-card__change-label {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* ── Loading State ────────────────────────── */
+
+.vx-kpi-card--loading {
+  pointer-events: none;
+}
+
+.vx-kpi-card__icon-skeleton,
+.vx-kpi-card__value-skeleton,
+.vx-kpi-card__label-skeleton {
+  background: linear-gradient(90deg, var(--vx-gray-100) 25%, var(--vx-gray-50) 50%, var(--vx-gray-100) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--vx-radius-md);
+}
+
+.vx-kpi-card__icon-skeleton {
+  width: 100%;
+  height: 100%;
+}
+
+.vx-kpi-card__value-skeleton {
+  width: 80px;
+  height: 28px;
+}
+
+.vx-kpi-card__label-skeleton {
+  width: 100px;
+  height: 16px;
+  margin-top: var(--vx-space-2);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Locked State ─────────────────────────── */
+
+.vx-kpi-card--locked .vx-kpi-card__content {
+  filter: blur(4px);
+  opacity: 0.5;
+}
+
+.vx-kpi-card__locked-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vx-space-2);
+  background: var(--vx-surface-scrim);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  border-radius: var(--vx-radius-xl);
+}
+
+.vx-kpi-card__lock-icon {
+  font-size: 1.5rem;
+}
+
+.vx-kpi-card__lock-text {
+  font-size: var(--vx-font-sm);
+  font-weight: 600;
+  color: var(--vx-gray-600);
+}
+
+.vx-kpi-card__upgrade-btn {
+  padding: var(--vx-space-1) var(--vx-space-3);
+  border: none;
+  border-radius: var(--vx-radius-full);
+  background: var(--vx-gradient-primary);
+  color: var(--vx-white);
+  font-size: var(--vx-font-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vx-kpi-card__upgrade-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 107, 44, 0.3);
+}
+

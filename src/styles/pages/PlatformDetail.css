@@ -1,0 +1,74 @@
+/* ============================================
+   PlatformDetailPage — Individual Platform Analytics
+   ============================================ */
+
+.platform-detail__back {
+  margin-bottom: var(--vx-space-4);
+}
+
+.platform-detail__header {
+  margin-bottom: var(--vx-space-8);
+}
+
+.platform-detail__title {
+  font-size: var(--vx-font-3xl);
+  font-weight: 800;
+  color: var(--vx-gray-900);
+  margin: 0;
+}
+
+.platform-detail__subtitle {
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-500);
+  margin: var(--vx-space-1) 0 0;
+}
+
+.platform-detail__kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--vx-space-4);
+}
+
+.platform-detail__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: var(--vx-space-4);
+  color: var(--vx-gray-500);
+}
+
+.platform-detail__spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--vx-gray-200);
+  border-top-color: var(--vx-primary);
+  border-radius: 50%;
+  animation: vx-spin 0.8s linear infinite;
+}
+
+.platform-detail__cell {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-3);
+}
+
+.platform-detail__thumb {
+  width: 48px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: var(--vx-radius-sm);
+  flex-shrink: 0;
+}
+
+.platform-detail__thumb--square {
+  width: 36px;
+  height: 36px;
+}
+
+@media (max-width: 768px) {
+  .platform-detail__kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

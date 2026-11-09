@@ -1,0 +1,168 @@
+/* ============================================
+   VOXLAE PillTabs — Animated Fancy Tabs
+   ============================================ */
+
+.vx-pill-tabs {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vx-space-1);
+  padding: 4px;
+  border-radius: var(--vx-radius-full);
+  background: var(--vx-gray-100);
+  transition: all 0.3s ease;
+}
+
+.vx-pill-tabs--full-width {
+  display: flex;
+  width: 100%;
+}
+
+.vx-pill-tabs--full-width .vx-pill-tabs__tab {
+  flex: 1;
+  justify-content: center;
+}
+
+/* ── Variants ─────────────────────────────── */
+
+.vx-pill-tabs--default {
+  background: var(--vx-gray-100);
+}
+
+.vx-pill-tabs--outlined {
+  background: transparent;
+  border: 1px solid var(--vx-gray-200);
+}
+
+.vx-pill-tabs--glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ── Animated Indicator ───────────────────── */
+
+.vx-pill-tabs__indicator {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  border-radius: var(--vx-radius-full);
+  background: var(--vx-surface);
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  z-index: 0;
+}
+
+.vx-pill-tabs--glass .vx-pill-tabs__indicator {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+/* ── Tab Button ───────────────────────────── */
+
+.vx-pill-tabs__tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vx-space-2);
+  padding: var(--vx-space-2) var(--vx-space-4);
+  border: none;
+  background: transparent;
+  font-family: var(--vx-font-sans);
+  font-size: var(--vx-font-sm);
+  font-weight: 500;
+  color: var(--vx-gray-600);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  border-radius: var(--vx-radius-full);
+  z-index: 1;
+}
+
+.vx-pill-tabs__tab:hover:not(:disabled) {
+  color: var(--vx-gray-900);
+}
+
+.vx-pill-tabs__tab--active {
+  color: var(--vx-gray-900);
+  font-weight: 600;
+}
+
+.vx-pill-tabs__tab:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.vx-pill-tabs__tab:focus-visible {
+  outline: 2px solid var(--vx-primary);
+  outline-offset: 2px;
+}
+
+/* ── Icon ─────────────────────────────────── */
+
+.vx-pill-tabs__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.vx-pill-tabs__icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* ── Sizes ────────────────────────────────── */
+
+.vx-pill-tabs--sm {
+  padding: 3px;
+}
+
+.vx-pill-tabs--sm .vx-pill-tabs__tab {
+  padding: var(--vx-space-1) var(--vx-space-3);
+  font-size: var(--vx-font-xs);
+}
+
+.vx-pill-tabs--sm .vx-pill-tabs__indicator {
+  top: 3px;
+  bottom: 3px;
+}
+
+.vx-pill-tabs--lg {
+  padding: 5px;
+}
+
+.vx-pill-tabs--lg .vx-pill-tabs__tab {
+  padding: var(--vx-space-3) var(--vx-space-5);
+  font-size: var(--vx-font-base);
+}
+
+.vx-pill-tabs--lg .vx-pill-tabs__indicator {
+  top: 5px;
+  bottom: 5px;
+}
+
+/* ── Platform Colors ──────────────────────── */
+
+.vx-pill-tabs__tab[data-tab-id="youtube"].vx-pill-tabs__tab--active {
+  color: #FF0000;
+}
+
+.vx-pill-tabs__tab[data-tab-id="instagram"].vx-pill-tabs__tab--active {
+  color: #E4405F;
+}
+
+/* ── Animation ────────────────────────────── */
+
+@keyframes pillTabPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.vx-pill-tabs__tab--active .vx-pill-tabs__icon {
+  animation: pillTabPulse 2s ease-in-out infinite;
+}

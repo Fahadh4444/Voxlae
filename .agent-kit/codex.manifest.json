@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 2,
+  "generator": "agent-kit@0.15.0",
+  "target": "codex",
+  "selection": {
+    "all": true,
+    "domains": [],
+    "ids": []
+  },
+  "files": [
+    {
+      "path": ".agents/skills/engineering-architecture/SKILL.md",
+      "sha256": "ae11f9abf9ab49e366aae63a141fa15fc338fb23c4c4f8b40c742792512d5803",
+      "component": "skill:engineering-architecture"
+    },
+    {
+      "path": ".agents/skills/engineering-architecture/references/decision-record.md",
+      "sha256": "ae5013f5f8cb83f3b1c17bc1508793e2df4a01a8a08743e35691376c273bdbca",
+      "component": "skill:engineering-architecture"
+    },
+    {
+      "path": ".agents/skills/engineering-backend/SKILL.md",
+      "sha256": "85f3aa22a058bcefb9147968d77f974f398e718c1dd30c543e23c8caac7992cd",
+      "component": "skill:engineering-backend"
+    },
+    {
+      "path": ".agents/skills/engineering-code-review/SKILL.md",
+      "sha256": "f30a0830439b965ce3b1a8cf915641a9b6d1ea69162884e77b6ef5dbecd70cd3",
+      "component": "skill:engineering-code-review"
+    },
+    {
+      "path": ".agents/skills/engineering-code-review/references/review-checklist.md",
+      "sha256": "6d1d86421002a13b2b71f5513e8120162246b5aa303315407cfa2b27b3bc78f8",
+      "component": "skill:engineering-code-review"
+    },
+    {
+      "path": ".agents/skills/engineering-database/SKILL.md",
+      "sha256": "41a761b8a60f657889bda808be3588eacfc4d74e65260b737eca798147020abd",
+      "component": "skill:engineering-database"
+    },
+    {
+      "path": ".agents/skills/engineering-deliver/SKILL.md",
+      "sha256": "616b0066223e0616b34776e4941f762bd6317aeaf24720b9be9ed1377feb2303",
+      "component": "command:engineering-deliver"
+    },
+    {
+      "path": ".agents/skills/engineering-deliver/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:engineering-deliver"
+    },
+    {
+      "path": ".agents/skills/engineering-documentation/SKILL.md",
+      "sha256": "559ddab72b6c5784403546054706998de0623b29ca93a0ef640d6738a74aa367",
+      "component": "skill:engineering-documentation"
+    },
+    {
+      "path": ".agents/skills/engineering-frontend/SKILL.md",
+      "sha256": "55f1e7688d4597f9d888fe3a9df2513fccb7bed5c774bf6a0a6e4845b8e3be32",
+      "component": "skill:engineering-frontend"
+    },
+    {
+      "path": ".agents/skills/engineering-implementation/SKILL.md",
+      "sha256": "c185df608350cd98a640171af8c319132feae86c9c068b8e301cdca55df137ba",
+      "component": "skill:engineering-implementation"
+    },
+    {
+      "path": ".agents/skills/engineering-infrastructure/SKILL.md",
+      "sha256": "cdba2e2d94c5542f634daf91b33d17a20c9341557718193ba453d853c3c41ab3",
+      "component": "skill:engineering-infrastructure"
+    },
+    {
+      "path": ".agents/skills/engineering-performance/SKILL.md",
+      "sha256": "0bb671aa8a0be2381cb0773791f344d9e4155402991b31d1872d3feb00418a2c",
+      "component": "skill:engineering-performance"
+    },
+    {
+      "path": ".agents/skills/engineering-plan-change/SKILL.md",
+      "sha256": "f28eab58692bb030657156c4e5112aadb402435918909fef3fd6a2784dbb8517",
+      "component": "command:engineering-plan-change"
+    },
+    {
+      "path": ".agents/skills/engineering-plan-change/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:engineering-plan-change"
+    },
+    {
+      "path": ".agents/skills/engineering-planning/SKILL.md",
+      "sha256": "f1d630959e3c7fe18278f3bff7256887c0f2f3b4df7a908cd8a8d93c91324e24",
+      "component": "skill:engineering-planning"
+    },
+    {
+      "path": ".agents/skills/engineering-planning/references/plan-template.md",
+      "sha256": "357ba31f3fd4d0db16e75b074362d53debc1f07c5cf860b4945e3643370f31e8",
+      "component": "skill:engineering-planning"
+    },
+    {
+      "path": ".agents/skills/engineering-repository-exploration/SKILL.md",
+      "sha256": "83406935cb0e1f93ba8a6f9b8fc9a369215f870d81842a34daa087f668843563",
+      "component": "skill:engineering-repository-exploration"
+    },
+    {
+      "path": ".agents/skills/engineering-security/SKILL.md",
+      "sha256": "901e0054ba64845197b4d77cb09457290c98d9491b86638b80505256f4c0ac4f",
+      "component": "skill:engineering-security"
+    },
+    {
+      "path": ".agents/skills/engineering-testing-and-debugging/SKILL.md",
+      "sha256": "6428270996559498e43f21af8b1ca12e1097a3449a2cc08735766d7af8be27d8",
+      "component": "skill:engineering-testing-and-debugging"
+    },
+    {
+      "path": ".agents/skills/engineering-testing-and-debugging/references/test-cases.md",
+      "sha256": "46e8e574a8fc337b266f2a7a8bc51146909d552643e81a72a05eac8446d87da3",
+      "component": "skill:engineering-testing-and-debugging"
+    },
+    {
+      "path": ".agents/skills/marketing-ai-search/SKILL.md",
+      "sha256": "cbaf135a9aee382a10c7139823924288dc45ad73a4d04357349f94a14c639457",
+      "component": "skill:marketing-ai-search"
+    },
+    {
+      "path": ".agents/skills/marketing-analytics/SKILL.md",
+      "sha256": "a15e26f2ccceca3384dc7e6a60db90c106a61eca666e2bb23001d9dd5634a89c",
+      "component": "skill:marketing-analytics"
+    },
+    {
+      "path": ".agents/skills/marketing-analyze-competitors/SKILL.md",
+      "sha256": "b718a83aa364886f2f41d1dd33093ecff689e6fe1c54e2e44dbccd22a7e11980",
+      "component": "command:marketing-analyze-competitors"
+    },
+    {
+      "path": ".agents/skills/marketing-analyze-competitors/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:marketing-analyze-competitors"
+    },
+    {
+      "path": ".agents/skills/marketing-analyze-growth/SKILL.md",
+      "sha256": "5f785f6e94618cef4c1d10404c37ae9e72bb7f4e2e5b32c50e91f04430e2e866",
+      "component": "command:marketing-analyze-growth"
+    },
+    {
+      "path": ".agents/skills/marketing-analyze-growth/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:marketing-analyze-growth"
+    },
+    {
+      "path": ".agents/skills/marketing-audit/SKILL.md",
+      "sha256": "3956a1fa441bb8372b8c1b652f0320218b9cc84cab24cc983ad5bc698c9fd403",
+      "component": "command:marketing-audit"
+    },
+    {
+      "path": ".agents/skills/marketing-audit/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:marketing-audit"
+    },
+    {
+      "path": ".agents/skills/marketing-channel-growth/SKILL.md",
+      "sha256": "90c722b6bc6818d056924d460ff6184dea23bfe431c7a2eec19cf242dd1df153",
+      "component": "skill:marketing-channel-growth"
+    },
+    {
+      "path": ".agents/skills/marketing-competitor-analysis/SKILL.md",
+      "sha256": "26e9799a96dff1831da410b0c87655ade1f5cd2a24da8536474d0e3ccc53cc98",
+      "component": "skill:marketing-competitor-analysis"
+    },
+    {
+      "path": ".agents/skills/marketing-competitor-analysis/references/competitor-marketing-report.md",
+      "sha256": "107c78df703e3f198f1b135645bf31b384022bdd68db9d44451dafbdacedfa2a",
+      "component": "skill:marketing-competitor-analysis"
+    },
+    {
+      "path": ".agents/skills/marketing-content-strategy/SKILL.md",
+      "sha256": "70af54f2481e49924a31f7cf68566b6bd140ee0fa9933fa9c0d086dcddba3de1",
+      "component": "skill:marketing-content-strategy"
+    },
+    {
+      "path": ".agents/skills/marketing-content-strategy/references/content-brief.md",
+      "sha256": "170c62eb02b993070b5399a1ee044288d45008f5a521b152c1e1b85c7f50c330",
+      "component": "skill:marketing-content-strategy"
+    },
+    {
+      "path": ".agents/skills/marketing-conversion-optimization/SKILL.md",
+      "sha256": "bf6656f6c8b84e5240d353974e9cfa52fcf44db8affd1d619f237b81f286853f",
+      "component": "skill:marketing-conversion-optimization"
+    },
+    {
+      "path": ".agents/skills/marketing-copywriting/SKILL.md",
+      "sha256": "fb6e7fd455810092ad14e00347afc2cf4849d00c71468b931a85eb646a0152dc",
+      "component": "skill:marketing-copywriting"
+    },
+    {
+      "path": ".agents/skills/marketing-create-content/SKILL.md",
+      "sha256": "e4d1070cebaebbfa943f3efe4b89304fa1a802dc30970646a09f065d55316e05",
+      "component": "command:marketing-create-content"
+    },
+    {
+      "path": ".agents/skills/marketing-create-content/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:marketing-create-content"
+    },
+    {
+      "path": ".agents/skills/marketing-improve-seo/SKILL.md",
+      "sha256": "85ac4096444e9eb2d72a9bf618014542c0919e3b5ee8a2020f71657fe9354b7c",
+      "component": "command:marketing-improve-seo"
+    },
+    {
+      "path": ".agents/skills/marketing-improve-seo/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:marketing-improve-seo"
+    },
+    {
+      "path": ".agents/skills/marketing-keyword-strategy/SKILL.md",
+      "sha256": "00f7ed4456daa056afbcccd693fae7d73b8a5fa4cfa7dde01374107be2c5cd44",
+      "component": "skill:marketing-keyword-strategy"
+    },
+    {
+      "path": ".agents/skills/marketing-keyword-strategy/references/keyword-map.md",
+      "sha256": "64931b2193485e3ff4c616ce33d641f4e5924c22eafa780d901a8ea06f27c669",
+      "component": "skill:marketing-keyword-strategy"
+    },
+    {
+      "path": ".agents/skills/marketing-launch-planning/SKILL.md",
+      "sha256": "d80de0e991825ee0c4db6f85ff0eef244c91dcc5bd36027a73fcba867944648a",
+      "component": "skill:marketing-launch-planning"
+    },
+    {
+      "path": ".agents/skills/marketing-launch-planning/references/launch-checklist.md",
+      "sha256": "c231243715413052cbe050c4896e70f902eca612c2a4dabd2c8de4cb1d420bfa",
+      "component": "skill:marketing-launch-planning"
+    },
+    {
+      "path": ".agents/skills/marketing-link-acquisition/SKILL.md",
+      "sha256": "88d5fcdee9382cd615d30617c25e90b0596b40366cf736bd5605594de2dc2d2c",
+      "component": "skill:marketing-link-acquisition"
+    },
+    {
+      "path": ".agents/skills/marketing-plan-launch/SKILL.md",
+      "sha256": "17187782dd9c823cc951040f935213f509c50126abcc16f81bcac5ea02910816",
+      "component": "command:marketing-plan-launch"
+    },
+    {
+      "path": ".agents/skills/marketing-plan-launch/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:marketing-plan-launch"
+    },
+    {
+      "path": ".agents/skills/marketing-position-product/SKILL.md",
+      "sha256": "cbe6d16a9adefa3a4571948c240a75ae8aa15cb419219b3dfc7cd1ff5851f188",
+      "component": "command:marketing-position-product"
+    },
+    {
+      "path": ".agents/skills/marketing-position-product/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:marketing-position-product"
+    },
+    {
+      "path": ".agents/skills/marketing-positioning/SKILL.md",
+      "sha256": "0aa714ea7b4c5679edb5936311e66e53e96a4ae43e3deb6f6c8ba29fbb0818e4",
+      "component": "skill:marketing-positioning"
+    },
+    {
+      "path": ".agents/skills/marketing-research-keywords/SKILL.md",
+      "sha256": "160355bd6c73731b6d2cb63dd1676189b4418c06d5640b8ee3a06f3841033ddf",
+      "component": "command:marketing-research-keywords"
+    },
+    {
+      "path": ".agents/skills/marketing-research-keywords/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:marketing-research-keywords"
+    },
+    {
+      "path": ".agents/skills/marketing-technical-seo/SKILL.md",
+      "sha256": "0fed90e8d7113b1d6c9991410cdc5a248e6768417cdcd789614da1c8d34ad865",
+      "component": "skill:marketing-technical-seo"
+    },
+    {
+      "path": ".agents/skills/marketing-technical-seo/references/implementation.md",
+      "sha256": "21d78fb7abc0460ab58df16458d55e550e043ddb08dd64a2ea96b7d896ab240b",
+      "component": "skill:marketing-technical-seo"
+    },
+    {
+      "path": ".agents/skills/marketing-technical-seo/references/indexing-checklist.md",
+      "sha256": "c2386c7bf38126bacdc23123d7a888f915257fc28b762bbf5d742d8ca5dcdfe0",
+      "component": "skill:marketing-technical-seo"
+    },
+    {
+      "path": ".agents/skills/marketing-visibility-diagnosis/SKILL.md",
+      "sha256": "b032af6c03e52448ef3d7364d7356bf8de3c065005ecaa1244ea1beb1e0e30d5",
+      "component": "skill:marketing-visibility-diagnosis"
+    },
+    {
+      "path": ".agents/skills/marketing-visibility-diagnosis/references/audit-report.md",
+      "sha256": "5598449f7fb15e826b762682d8b4a41563098c70dd437bc435a13a3c0b6a04cc",
+      "component": "skill:marketing-visibility-diagnosis"
+    },
+    {
+      "path": ".agents/skills/product-analytics/SKILL.md",
+      "sha256": "21416ef964df48ad8ab15d89ba4e8c57c1d09d8d59167cd615b7a55ba12925af",
+      "component": "skill:product-analytics"
+    },
+    {
+      "path": ".agents/skills/product-analyze-competitors/SKILL.md",
+      "sha256": "675a7d24aa48871ac6aa3689e55f2831838476812687fb508b91df54486f684b",
+      "component": "command:product-analyze-competitors"
+    },
+    {
+      "path": ".agents/skills/product-analyze-competitors/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:product-analyze-competitors"
+    },
+    {
+      "path": ".agents/skills/product-competitor-analysis/SKILL.md",
+      "sha256": "5815108bf1f98c22545a7725ad8c6516d88edf2b6f549cfd7f8955fa3e0f822c",
+      "component": "skill:product-competitor-analysis"
+    },
+    {
+      "path": ".agents/skills/product-competitor-analysis/references/competitor-matrix.md",
+      "sha256": "837a8a6d122345e482d3f081d3c312f1634739409cf1d3eca1cbbd26fd4f6786",
+      "component": "skill:product-competitor-analysis"
+    },
+    {
+      "path": ".agents/skills/product-competitor-analysis/references/opportunity-backlog.md",
+      "sha256": "580376d38361b7452c0c7acb04d0c43d5888663975c1883acd6814bd01301e5f",
+      "component": "skill:product-competitor-analysis"
+    },
+    {
+      "path": ".agents/skills/product-market-research/SKILL.md",
+      "sha256": "090c39856abda9ad7be528daa5247be0291b2bd7158d845b22f08422bcc8b43a",
+      "component": "skill:product-market-research"
+    },
+    {
+      "path": ".agents/skills/product-pricing-research/SKILL.md",
+      "sha256": "d8aecb30b43d4eda4e1b7cf2b860195912b29e78d24707e92a7a6df2538f6c8c",
+      "component": "skill:product-pricing-research"
+    },
+    {
+      "path": ".agents/skills/product-prioritization/SKILL.md",
+      "sha256": "54decf42bf571d72d72a5c50913d973b76de1597f5110da39cac4a07d42be7b7",
+      "component": "skill:product-prioritization"
+    },
+    {
+      "path": ".agents/skills/product-prioritize/SKILL.md",
+      "sha256": "f5ef3df4cd137e7933b43435cafb78196867d7fc6ab706ded13e5f0c6052ba97",
+      "component": "command:product-prioritize"
+    },
+    {
+      "path": ".agents/skills/product-prioritize/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:product-prioritize"
+    },
+    {
+      "path": ".agents/skills/product-problem-validation/SKILL.md",
+      "sha256": "3f9770743cfc8359994dc11e241d4ea7f5832d58211ef86c59f5356cc4a0a45f",
+      "component": "skill:product-problem-validation"
+    },
+    {
+      "path": ".agents/skills/product-problem-validation/references/interview-guide.md",
+      "sha256": "844be4ad1826a05d3eed2053bbe7769e6986d7f73dd102e8e366997a779bd0a5",
+      "component": "skill:product-problem-validation"
+    },
+    {
+      "path": ".agents/skills/product-requirements-definition/SKILL.md",
+      "sha256": "a3e583c62fe0593b82b0e43307b4be3fdc600c94654aeef4bb3c6ee53bb0ffc1",
+      "component": "skill:product-requirements-definition"
+    },
+    {
+      "path": ".agents/skills/product-requirements-definition/references/prd-template.md",
+      "sha256": "1cc9217e43c17d8b2d02647a98b88a79eebb1e1ebe55ab2a285aebd5246761fc",
+      "component": "skill:product-requirements-definition"
+    },
+    {
+      "path": ".agents/skills/product-ux-evaluation/SKILL.md",
+      "sha256": "18375446fe9a7063909fcb9c55c1e54e06fe68ac9a9f1f1e07e6a8b353285016",
+      "component": "skill:product-ux-evaluation"
+    },
+    {
+      "path": ".agents/skills/product-validate-idea/SKILL.md",
+      "sha256": "070ce38fa1bab60723d1a76e428949aedf6c0ad872100ea079d8f4116d5eb8f0",
+      "component": "command:product-validate-idea"
+    },
+    {
+      "path": ".agents/skills/product-validate-idea/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:product-validate-idea"
+    },
+    {
+      "path": ".agents/skills/product-write-prd/SKILL.md",
+      "sha256": "c011e242b21ea962019f5e2d44c29146b826dbc2d99b5e156f49451700958745",
+      "component": "command:product-write-prd"
+    },
+    {
+      "path": ".agents/skills/product-write-prd/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:product-write-prd"
+    },
+    {
+      "path": ".agents/skills/yoindieagent/SKILL.md",
+      "sha256": "9230e677a7fc3c3428aaa4fbcedfdf67409ac08e1b5cbaa3338f42ae0acb0660",
+      "component": "command:yoindieagent"
+    },
+    {
+      "path": ".agents/skills/yoindieagent/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+      "component": "command:yoindieagent"
+    },
+    {
+      "path": ".codex/agents/engineering-architect.toml",
+      "sha256": "f080d09612ed162a0f1e2dcae39363458bda15c65af2226eb86f9b32f31221cb",
+      "component": "agent:engineering-architect"
+    },
+    {
+      "path": ".codex/agents/engineering-code-reviewer.toml",
+      "sha256": "31604c2c5c97181ad802605c5f066a92791a021de7fc343d664993b59e5c543b",
+      "component": "agent:engineering-code-reviewer"
+    },
+    {
+      "path": ".codex/agents/engineering-debugger.toml",
+      "sha256": "b4e969794e4cf4b87e558730fe82fcfc814d2c4431eef99005bafb8dabe56b08",
+      "component": "agent:engineering-debugger"
+    },
+    {
+      "path": ".codex/agents/engineering-devops.toml",
+      "sha256": "9a26013739f754092829858b1668952b4ecb91b2350be518208f247fc2758bb8",
+      "component": "agent:engineering-devops"
+    },
+    {
+      "path": ".codex/agents/engineering-implementer.toml",
+      "sha256": "dafc20375a49427c2f1c19c82965a1c7c585a58926510a428e7d5c51c672be5d",
+      "component": "agent:engineering-implementer"
+    },
+    {
+      "path": ".codex/agents/engineering-lead.toml",
+      "sha256": "1107dd972025f1792fe8e74e995bcce7356d151ac3a7430fdb0ec945d6811f2a",
+      "component": "agent:engineering-lead"
+    },
+    {
+      "path": ".codex/agents/engineering-performance-specialist.toml",
+      "sha256": "a2b3c8e11a9edac6edee1d467eedf9cf8d205e4da5c8b27e072266d1cf3c1e05",
+      "component": "agent:engineering-performance-specialist"
+    },
+    {
+      "path": ".codex/agents/engineering-planner.toml",
+      "sha256": "43423eda74cfaa059d4ec27788a21f5d8fdab091df2e030cb9e7229961952523",
+      "component": "agent:engineering-planner"
+    },
+    {
+      "path": ".codex/agents/engineering-security-reviewer.toml",
+      "sha256": "83ec149d92d93e4f04f0b810384a52b23dc613eb145c9924c47308112f7139ee",
+      "component": "agent:engineering-security-reviewer"
+    },
+    {
+      "path": ".codex/agents/engineering-technical-writer.toml",
+      "sha256": "b1c91dd0ac47632876997ba7b007f656653fa0a9510d6f63a036dd2ed1d9d3d0",
+      "component": "agent:engineering-technical-writer"
+    },
+    {
+      "path": ".codex/agents/engineering-tester.toml",
+      "sha256": "34f38c6e85d2e452818073346ce552a29702cc4fa570ecc94aeab890a00c164e",
+      "component": "agent:engineering-tester"
+    },
+    {
+      "path": ".codex/agents/marketing-analyst.toml",
+      "sha256": "bd46f37eb1121a46917da6e8ae7c7e9c30b11c44784c5e6129d7d381ebd1b2f3",
+      "component": "agent:marketing-analyst"
+    },
+    {
+      "path": ".codex/agents/marketing-content-strategist.toml",
+      "sha256": "163ee21827722594c0b0920a020d8b7cb0c6f48cc87d2448624db0cdfd15d5a6",
+      "component": "agent:marketing-content-strategist"
+    },
+    {
+      "path": ".codex/agents/marketing-copywriter.toml",
+      "sha256": "fc8d096b14e92a39d35f97143611e1373f3f1b5148df85cbfb1e42749799a440",
+      "component": "agent:marketing-copywriter"
+    },
+    {
+      "path": ".codex/agents/marketing-growth-strategist.toml",
+      "sha256": "eb722ef7858f91e27d5cd5751427ab3d302e207495580e1944e3f9df310238f4",
+      "component": "agent:marketing-growth-strategist"
+    },
+    {
+      "path": ".codex/agents/marketing-lead.toml",
+      "sha256": "e122ca460ac134d13e9035cff305edc54706c61695b096411af931c18bcf8229",
+      "component": "agent:marketing-lead"
+    },
+    {
+      "path": ".codex/agents/marketing-positioning-strategist.toml",
+      "sha256": "e922bdddbc672b75c28be784d78287769cc377cf66d33e5abd4e4f02af54cd93",
+      "component": "agent:marketing-positioning-strategist"
+    },
+    {
+      "path": ".codex/agents/marketing-seo-strategist.toml",
+      "sha256": "b8c331711d1176bf5991071c40094e04141dff81e38ce115ca1204e2b1e51794",
+      "component": "agent:marketing-seo-strategist"
+    },
+    {
+      "path": ".codex/agents/marketing-technical-seo-specialist.toml",
+      "sha256": "627e58c1cb430006f4599e2f862b740ec8228354edcf9bb2e64693e4df0ed28b",
+      "component": "agent:marketing-technical-seo-specialist"
+    },
+    {
+      "path": ".codex/agents/product-analyst.toml",
+      "sha256": "f5fb2199ef81ab5e4d4c633f5f9723b11bc0c5bdacc5f50f188e450f9ec76413",
+      "component": "agent:product-analyst"
+    },
+    {
+      "path": ".codex/agents/product-lead.toml",
+      "sha256": "570f81867c4ebfebfba49cdb7251fc2c2bf0ce7328934f1379f406b5ac7c1acd",
+      "component": "agent:product-lead"
+    },
+    {
+      "path": ".codex/agents/product-manager.toml",
+      "sha256": "11bd9eec0524a99e65183fdec073ea594854744f12c4b80d8c0aabb2ef6d8aa6",
+      "component": "agent:product-manager"
+    },
+    {
+      "path": ".codex/agents/product-researcher.toml",
+      "sha256": "84c2d28d01a1266e90f5aeba2a27f804ba43c8b7c462b26e644a71b580cadb67",
+      "component": "agent:product-researcher"
+    },
+    {
+      "path": ".codex/agents/product-ux-designer.toml",
+      "sha256": "05295b3d70b1dada98b5e13774f2fb8778677f99a6e2d7cf97bcf291a73ab3db",
+      "component": "agent:product-ux-designer"
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+/**
+ * Placeholder Dashboard Styles (shared between Freelancer and Brand)
+ */
+
+.placeholder-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  color: #ffffff;
+}
+
+.placeholder-dashboard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.placeholder-dashboard__user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.placeholder-dashboard__user-name {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.placeholder-dashboard__logout-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.placeholder-dashboard__logout-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.placeholder-dashboard__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  padding: 2rem;
+  text-align: center;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.placeholder-dashboard__icon {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 107, 44, 0.1);
+  border-radius: 24px;
+  margin-bottom: 2rem;
+  color: #FF6B2C;
+}
+
+.placeholder-dashboard__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.placeholder-dashboard__subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #FF6B2C;
+  margin: 0 0 1.5rem;
+}
+
+.placeholder-dashboard__description {
+  max-width: 500px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 2.5rem;
+}
+
+.placeholder-dashboard__features {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.placeholder-dashboard__feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.placeholder-dashboard__feature-icon {
+  font-size: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .placeholder-dashboard__header {
+    padding: 1rem;
+  }
+
+  .placeholder-dashboard__title {
+    font-size: 1.75rem;
+  }
+
+  .placeholder-dashboard__features {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .placeholder-dashboard__feature {
+    width: 100%;
+    justify-content: center;
+  }
+}

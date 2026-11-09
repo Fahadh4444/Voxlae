@@ -1,0 +1,555 @@
+/* ============================================
+   VOXLAE Sidebar — Premium Navigation Sidebar
+   ============================================ */
+
+.vx-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--vx-sidebar-width, 260px);
+  background: var(--vx-surface);
+  border-right: 1px solid var(--vx-gray-100);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Resize handle (desktop, expanded) ────── */
+.vx-sidebar__resizer {
+  position: absolute;
+  top: 0;
+  right: -3px;
+  width: 6px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 101;
+  background: transparent;
+  touch-action: none;
+  transition: background-color 0.15s ease;
+}
+
+.vx-sidebar__resizer:hover,
+.vx-sidebar__resizer:focus-visible {
+  background: var(--vx-primary);
+  outline: none;
+}
+
+/* Keep the accent visible for the whole drag, even off the handle. */
+.vx-dashboard-layout--resizing .vx-sidebar__resizer {
+  background: var(--vx-primary);
+}
+
+.vx-sidebar--collapsed {
+  width: 72px;
+}
+
+/* ── Header ───────────────────────────────── */
+
+.vx-sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--vx-space-4) var(--vx-space-4);
+  border-bottom: 1px solid var(--vx-gray-100);
+  min-height: 64px;
+}
+
+.vx-sidebar__logo {
+  display: flex;
+  align-items: center;
+}
+
+.vx-sidebar__toggle {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: var(--vx-gray-100);
+  border-radius: var(--vx-radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.vx-sidebar__toggle:hover {
+  background: var(--vx-gray-200);
+}
+
+.vx-sidebar__toggle svg {
+  width: 16px;
+  height: 16px;
+  color: var(--vx-gray-600);
+}
+
+.vx-sidebar--collapsed .vx-sidebar__header {
+  justify-content: center;
+  padding: var(--vx-space-4) var(--vx-space-2);
+}
+
+.vx-sidebar--collapsed .vx-sidebar__toggle {
+  display: none;
+}
+
+/* When collapsed the toggle is hidden, so the logo doubles as the expand
+   control. Give it real button affordance and reveal a chevron on hover. */
+.vx-sidebar__logo--expand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: var(--vx-radius-md);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.vx-sidebar__logo--expand:hover,
+.vx-sidebar__logo--expand:focus-visible {
+  background: var(--vx-gray-100);
+}
+
+.vx-sidebar__logo-expand-hint {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--vx-primary);
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.vx-sidebar__logo-expand-hint svg {
+  width: 11px;
+  height: 11px;
+}
+
+.vx-sidebar__logo--expand:hover .vx-sidebar__logo-expand-hint,
+.vx-sidebar__logo--expand:focus-visible .vx-sidebar__logo-expand-hint {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vx-sidebar__logo--expand,
+  .vx-sidebar__logo-expand-hint {
+    transition: none;
+  }
+}
+
+/* ── Navigation ───────────────────────────── */
+
+.vx-sidebar__nav {
+  flex: 1;
+  padding: var(--vx-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-1);
+  overflow-y: auto;
+}
+
+.vx-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-3);
+  padding: var(--vx-space-3) var(--vx-space-3);
+  border-radius: var(--vx-radius-lg);
+  color: var(--vx-gray-600);
+  text-decoration: none;
+  font-size: var(--vx-font-sm);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.vx-sidebar__link:hover {
+  background: var(--vx-gray-50);
+  color: var(--vx-gray-900);
+}
+
+.vx-sidebar__link--active {
+  background: var(--vx-primary-muted);
+  color: var(--vx-primary);
+}
+
+.vx-sidebar__link--active:hover {
+  background: var(--vx-primary-muted);
+}
+
+.vx-sidebar__link-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vx-sidebar__link-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Locked nav item */
+.vx-sidebar__link--locked {
+  color: var(--vx-gray-400);
+  opacity: 0.7;
+}
+
+.vx-sidebar__link--locked:hover {
+  color: var(--vx-gray-500);
+  background: var(--vx-gray-50);
+}
+
+.vx-sidebar__lock-icon {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  color: var(--vx-gray-300);
+}
+
+.vx-sidebar__lock-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.vx-sidebar__soon-badge {
+  margin-left: auto;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  color: var(--vx-gray-500);
+  background: var(--vx-gray-100);
+}
+
+.vx-sidebar--collapsed .vx-sidebar__soon-badge {
+  display: none;
+}
+
+.vx-sidebar--collapsed .vx-sidebar__link {
+  justify-content: center;
+  padding: var(--vx-space-3);
+}
+
+.vx-sidebar--collapsed .vx-sidebar__link-label {
+  display: none;
+}
+
+.vx-sidebar--collapsed .vx-sidebar__lock-icon {
+  display: none;
+}
+
+/* ── Nav groups (e.g. Creator Tools) ──────── */
+
+.vx-sidebar__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-1);
+}
+
+/* The group header is a <button>, so reset button chrome to match a nav link */
+.vx-sidebar__group-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.vx-sidebar__chevron {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.vx-sidebar__chevron--open {
+  transform: rotate(180deg);
+}
+
+/* Children sit indented under the group */
+.vx-sidebar__group-children {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-1);
+  margin-left: calc(var(--vx-space-3) + 10px);
+  padding-left: var(--vx-space-3);
+}
+
+.vx-sidebar__link--child {
+  font-size: var(--vx-font-sm);
+  padding-top: var(--vx-space-2);
+  padding-bottom: var(--vx-space-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vx-sidebar__chevron {
+    transition: none;
+  }
+}
+
+/* ── Footer ───────────────────────────────── */
+
+.vx-sidebar__footer {
+  padding: var(--vx-space-4);
+  border-top: 1px solid var(--vx-gray-100);
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-3);
+}
+
+/* Role Switcher in Footer */
+.vx-sidebar__role-switcher {
+  padding-bottom: var(--vx-space-3);
+  border-bottom: 1px solid var(--vx-gray-100);
+  margin-bottom: var(--vx-space-1);
+}
+
+/* Make the switcher fill the sidebar width */
+.vx-sidebar__role-switcher .vx-role-switcher {
+  display: flex;
+  width: 100%;
+}
+
+.vx-sidebar__role-switcher .vx-role-switcher__trigger {
+  width: 100%;
+  justify-content: flex-start;
+  border-radius: var(--vx-radius-lg);
+}
+
+.vx-sidebar__role-switcher .vx-role-switcher__chevron {
+  margin-left: auto;
+}
+
+/* Dropdown left-aligned in sidebar */
+.vx-sidebar__role-switcher .vx-role-switcher__dropdown {
+  right: auto;
+  left: 0;
+  width: 100%;
+  bottom: calc(100% + var(--vx-space-2));
+  top: auto;
+}
+
+/* Collapsed sidebar — show only the role icon */
+.vx-sidebar--collapsed .vx-sidebar__role-switcher {
+  padding-bottom: var(--vx-space-3);
+  display: flex;
+  justify-content: center;
+}
+
+.vx-sidebar--collapsed .vx-sidebar__role-switcher .vx-role-switcher__label,
+.vx-sidebar--collapsed .vx-sidebar__role-switcher .vx-role-switcher__chevron {
+  display: none;
+}
+
+.vx-sidebar--collapsed .vx-sidebar__role-switcher .vx-role-switcher__trigger {
+  width: auto;
+  padding: var(--vx-space-2);
+  border-radius: var(--vx-radius-full);
+}
+
+/* Dropdown floats to the right of collapsed sidebar */
+.vx-sidebar--collapsed .vx-sidebar__role-switcher .vx-role-switcher__dropdown {
+  left: calc(100% + var(--vx-space-2));
+  bottom: 0;
+  width: 200px;
+}
+
+/* User Info */
+.vx-sidebar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-3);
+  padding: var(--vx-space-2);
+}
+
+.vx-sidebar__user-avatar {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--vx-radius-full);
+  background: var(--vx-gradient-primary);
+  color: var(--vx-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--vx-font-sm);
+  font-weight: 700;
+}
+
+.vx-sidebar__user-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.vx-sidebar__user-name {
+  font-size: var(--vx-font-sm);
+  font-weight: 600;
+  color: var(--vx-gray-900);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vx-sidebar__user-email {
+  font-size: var(--vx-font-xs);
+  color: var(--vx-gray-500);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vx-sidebar--collapsed .vx-sidebar__user {
+  justify-content: center;
+}
+
+.vx-sidebar--collapsed .vx-sidebar__user-info {
+  display: none;
+}
+
+/* Logout */
+.vx-sidebar__logout {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-3);
+  padding: var(--vx-space-3);
+  border: none;
+  background: transparent;
+  color: var(--vx-gray-600);
+  font-size: var(--vx-font-sm);
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: var(--vx-radius-lg);
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.vx-sidebar__logout:hover {
+  background: var(--vx-error-bg);
+  color: var(--vx-error);
+}
+
+.vx-sidebar__logout svg {
+  width: 20px;
+  height: 20px;
+}
+
+.vx-sidebar--collapsed .vx-sidebar__logout {
+  justify-content: center;
+}
+
+.vx-sidebar--collapsed .vx-sidebar__logout span {
+  display: none;
+}
+
+/* ── Responsive ───────────────────────────── */
+
+@media (max-width: 768px) {
+  .vx-sidebar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    height: auto;
+    flex-direction: row;
+    border-right: none;
+    border-top: 1px solid var(--vx-gray-100);
+    padding: 0;
+    z-index: 100;
+  }
+
+  /* No edge-resize when the sidebar is a bottom bar. */
+  .vx-sidebar__resizer {
+    display: none;
+  }
+
+  .vx-sidebar__header,
+  .vx-sidebar__footer,
+  .vx-sidebar__role-switcher {
+    display: none;
+  }
+
+  .vx-sidebar__nav {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: var(--vx-space-2) 0;
+    gap: 0;
+    width: 100%;
+  }
+
+  .vx-sidebar__link {
+    flex-direction: column;
+    gap: var(--vx-space-1);
+    padding: var(--vx-space-2);
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vx-sidebar__link-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .vx-sidebar__link-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Hide labels on mobile */
+  .vx-sidebar__link-label {
+    display: none !important;
+  }
+
+  /* Hide lock icons on mobile - force override */
+  .vx-sidebar__lock-icon {
+    display: none !important;
+  }
+
+  /* Locked items on mobile - show disabled style */
+  .vx-sidebar__link--locked {
+    opacity: 0.5;
+    color: var(--vx-gray-400);
+  }
+
+  .vx-sidebar__link--locked:hover {
+    opacity: 0.5;
+    background: transparent;
+    color: var(--vx-gray-400);
+  }
+
+  /* Ensure consistent height for all links */
+  .vx-sidebar__link {
+    min-height: 60px;
+  }
+
+  /* Hide items marked as hideOnMobile on mobile bottom nav */
+  .vx-sidebar__link--hide-mobile {
+    display: none !important;
+  }
+}

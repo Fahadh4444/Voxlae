@@ -1,0 +1,221 @@
+/* AuthPage — /signin and /signup. Brand panel uses the landing page's palette (Home.css). */
+.auth-page {
+  --ap-navy: #0F1B3D;
+  --ap-grad-hero: linear-gradient(160deg, #040A18 0%, #0A1229 25%, #0F1B3D 50%, #1A2D5A 80%, #162044 100%);
+  --ap-accent: linear-gradient(100deg, #FF6B2C 0%, #FFB347 55%, #FF8F5C 100%);
+  --ap-ink: #10182B;
+  --ap-ink-soft: #46506A;
+  --ap-cream: #FDF2E6;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #fff;
+}
+
+/* ── Brand panel ── */
+.auth-page__brand {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 44px 56px;
+  background: var(--ap-grad-hero);
+  color: #fff;
+}
+
+.auth-page__blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+.auth-page__blob--1 {
+  width: 560px; height: 560px; top: -200px; right: -180px;
+  background: radial-gradient(circle, rgba(255, 107, 44, 0.18) 0%, rgba(255, 107, 44, 0) 70%);
+  animation: ap-float 16s ease-in-out infinite;
+}
+.auth-page__blob--2 {
+  width: 440px; height: 440px; bottom: -160px; left: -140px;
+  background: radial-gradient(circle, rgba(45, 212, 168, 0.14) 0%, rgba(45, 212, 168, 0) 70%);
+  animation: ap-float 22s ease-in-out infinite reverse;
+}
+@keyframes ap-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(22px, -20px) scale(1.06); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .auth-page__blob { animation: none; }
+}
+
+.auth-page__logo { display: inline-flex; align-items: center; text-decoration: none; color: inherit; }
+
+.auth-page__pitch { max-width: 600px; }
+
+.auth-page__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+}
+.auth-page__eyebrow::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #FF6B2C;
+  box-shadow: 0 0 0 4px rgba(255, 107, 44, 0.2);
+}
+
+.auth-page__pitch h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.6vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.18;
+  text-wrap: balance;
+  letter-spacing: -0.022em;
+}
+.auth-page__accent {
+  display: block;
+  background: var(--ap-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.auth-page__pillars {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.auth-page__pillars li {
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+}
+.auth-page__pillars b {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFB347;
+}
+.auth-page__pillars span {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.auth-page__fine { margin: 0; font-size: 13px; color: rgba(255, 255, 255, 0.45); }
+
+/* ── Main column ── */
+.auth-page__main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 28px 32px;
+  background:
+    radial-gradient(900px 500px at 100% 0%, rgba(255, 179, 71, 0.10), transparent 60%),
+    radial-gradient(700px 420px at 0% 100%, rgba(255, 107, 44, 0.06), transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, var(--ap-cream) 140%);
+}
+
+.auth-page__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  min-height: 40px;
+}
+.auth-page__logo--mobile { display: none; margin-right: auto; color: var(--ap-ink); }
+.auth-page__back {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ap-ink-soft);
+  text-decoration: none;
+}
+.auth-page__back:hover { color: #FF6B2C; }
+
+.auth-page__card-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+/* The AuthModal content, rendered as a card (variant="page"). */
+.auth-modal--page {
+  animation: ap-card-in 0.35s ease-out;
+  max-width: 440px;
+  border: 1px solid rgba(15, 27, 61, 0.08);
+  box-shadow: 0 30px 60px -28px rgba(15, 27, 61, 0.28), 0 10px 24px -14px rgba(15, 27, 61, 0.14);
+}
+@keyframes ap-card-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .auth-modal--page { animation: none; }
+}
+
+.auth-page__legal {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #79839B;
+}
+.auth-page__legal a { color: inherit; text-decoration: none; }
+.auth-page__legal a:hover { color: var(--ap-ink); }
+
+/* ── Dark theme (data-theme="dark" on <html>, set by ThemeContext) ── */
+:root[data-theme="dark"] .auth-page { background: #0B1426; }
+:root[data-theme="dark"] .auth-page__main {
+  background:
+    radial-gradient(900px 500px at 100% 0%, rgba(255, 179, 71, 0.08), transparent 60%),
+    radial-gradient(700px 420px at 0% 100%, rgba(255, 107, 44, 0.07), transparent 60%),
+    linear-gradient(180deg, #0D1830 0%, #0A1226 100%);
+}
+:root[data-theme="dark"] .auth-page__logo--mobile { color: #F4F7FC; }
+:root[data-theme="dark"] .auth-page__back { color: #9AA7BD; }
+:root[data-theme="dark"] .auth-page__legal { color: #7C8AA3; }
+:root[data-theme="dark"] .auth-page__legal a:hover { color: #F4F7FC; }
+:root[data-theme="dark"] .auth-modal--page {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.6), 0 10px 24px -14px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Narrow screens: one column — the card page carries its own logo bar ── */
+@media (max-width: 960px) {
+  .auth-page { grid-template-columns: 1fr; }
+  .auth-page__brand { display: none; }
+  .auth-page__main { padding: 18px 16px 24px; }
+  .auth-page__topbar { justify-content: space-between; }
+  .auth-page__logo--mobile { display: inline-flex; }
+}
+
+/* `.auth-page` prefix outranks AuthModal.css's own phone rule, which adds a margin meant for the
+   floating modal — on this page that margin pushed the card past the screen edge. */
+.auth-page .auth-modal--page { min-width: 0; }
+
+@media (max-width: 480px) {
+  .auth-page .auth-modal--page { margin: 0; padding: 28px 20px; border-radius: 20px; }
+}

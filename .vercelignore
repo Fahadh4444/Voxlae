@@ -1,0 +1,6 @@
+# Never upload local secrets or build output; Vercel builds from source and reads env vars from the project.
+.env*
+node_modules
+.next
+tsconfig.tsbuildinfo
+.vscode

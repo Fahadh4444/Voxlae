@@ -1,0 +1,113 @@
+/* ============================================
+   VOXLAE ReconnectBanner — Platform Reconnect
+   ============================================ */
+
+.vx-reconnect-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--vx-space-4);
+  padding: var(--vx-space-3) var(--vx-space-4);
+  border-radius: var(--vx-radius-lg);
+  background: var(--vx-warning-bg);
+  border: 1px solid rgba(255, 176, 32, 0.3);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Platform Colors ──────────────────────── */
+
+.vx-reconnect-banner--youtube {
+  background: rgba(255, 0, 0, 0.06);
+  border-color: rgba(255, 0, 0, 0.2);
+}
+
+.vx-reconnect-banner--instagram {
+  background: rgba(228, 64, 95, 0.06);
+  border-color: rgba(228, 64, 95, 0.2);
+}
+
+/* ── Content ──────────────────────────────── */
+
+.vx-reconnect-banner__content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--vx-space-3);
+  flex: 1;
+}
+
+.vx-reconnect-banner__icon {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+}
+
+.vx-reconnect-banner__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-1);
+}
+
+.vx-reconnect-banner__text strong {
+  font-size: var(--vx-font-sm);
+  font-weight: 600;
+  color: var(--vx-gray-900);
+}
+
+.vx-reconnect-banner__text span {
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-600);
+  line-height: 1.4;
+}
+
+/* ── Actions ──────────────────────────────── */
+
+.vx-reconnect-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-2);
+  flex-shrink: 0;
+}
+
+.vx-reconnect-banner__dismiss {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--vx-gray-500);
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: var(--vx-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.vx-reconnect-banner__dismiss:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--vx-gray-700);
+}
+
+/* ── Responsive ───────────────────────────── */
+
+@media (max-width: 640px) {
+  .vx-reconnect-banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vx-reconnect-banner__actions {
+    justify-content: flex-end;
+  }
+}
+

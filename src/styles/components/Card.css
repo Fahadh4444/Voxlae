@@ -1,0 +1,64 @@
+/* ============================================
+   VOXLAE Card (Gradient-First)
+   ============================================ */
+
+.vx-card {
+  border-radius: var(--vx-radius-2xl);
+  transition: all var(--vx-transition-normal);
+  position: relative;
+}
+
+/* ── Padding ──────────────────────────── */
+.vx-card--pad-sm  { padding: var(--vx-space-4); }
+.vx-card--pad-md  { padding: var(--vx-space-6); }
+.vx-card--pad-lg  { padding: var(--vx-space-8); }
+.vx-card--pad-xl  { padding: var(--vx-space-12); }
+
+/* ── Variants ─────────────────────────── */
+.vx-card--default {
+  background: var(--vx-gradient-surface);
+  box-shadow: var(--vx-shadow-md);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.vx-card--elevated {
+  background: var(--vx-gradient-surface-warm);
+  box-shadow: var(--vx-shadow-elevated);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.vx-card--outlined {
+  background: var(--vx-gradient-surface);
+  border: 1.5px solid var(--vx-gray-200);
+}
+.vx-card--dark {
+  background: var(--vx-gradient-dark-card);
+  /* Always-navy surface in BOTH themes → text must stay light. Fixed value so
+     the dark-theme ramp inversion doesn't darken it. */
+  color: #EAEFF7;
+  box-shadow: var(--vx-shadow-card-dark);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ── Hoverable ────────────────────────── */
+.vx-card--hoverable:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--vx-shadow-xl);
+}
+.vx-card--default.vx-card--hoverable:hover,
+.vx-card--elevated.vx-card--hoverable:hover,
+.vx-card--outlined.vx-card--hoverable:hover {
+  border-color: rgba(255,107,44,0.15);
+  box-shadow: var(--vx-shadow-elevated), var(--vx-shadow-glow-soft);
+}
+.vx-card--dark.vx-card--hoverable:hover {
+  box-shadow: var(--vx-shadow-card-dark-hover);
+  background: linear-gradient(145deg, var(--vx-secondary-soft), var(--vx-secondary-light));
+  border-color: rgba(255,107,44,0.1);
+}
+
+/* ── Clickable ────────────────────────── */
+.vx-card--clickable {
+  cursor: pointer;
+}
+.vx-card--clickable:active {
+  transform: translateY(0) scale(0.99);
+}

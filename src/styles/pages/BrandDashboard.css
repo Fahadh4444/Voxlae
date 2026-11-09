@@ -1,0 +1,290 @@
+/* ============================================
+   BrandDashboard — Main dashboard for brands
+   ============================================ */
+
+.brand-dashboard {
+  padding: var(--vx-space-6);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.brand-dashboard__header {
+  margin-bottom: var(--vx-space-6);
+}
+
+.brand-dashboard__title {
+  font-size: var(--vx-font-3xl);
+  font-weight: 800;
+  color: var(--vx-gray-900);
+  margin: 0;
+}
+
+.brand-dashboard__subtitle {
+  font-size: var(--vx-font-base);
+  color: var(--vx-gray-500);
+  margin: var(--vx-space-1) 0 0;
+}
+
+/* Incomplete Banner */
+.brand-dashboard__incomplete-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--vx-space-4);
+  padding: var(--vx-space-5);
+  background: linear-gradient(135deg, var(--vx-warning-muted) 0%, #fff5eb 100%);
+  border: 1px solid var(--vx-warning);
+  border-radius: var(--vx-radius-xl);
+  margin-bottom: var(--vx-space-6);
+}
+
+.brand-dashboard__incomplete-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--vx-space-3);
+}
+
+.brand-dashboard__incomplete-content svg {
+  flex-shrink: 0;
+  color: var(--vx-warning);
+  margin-top: 2px;
+}
+
+.brand-dashboard__incomplete-content h3 {
+  font-size: var(--vx-font-base);
+  font-weight: 700;
+  color: var(--vx-gray-900);
+  margin: 0;
+}
+
+.brand-dashboard__incomplete-content p {
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-600);
+  margin: var(--vx-space-1) 0 0;
+}
+
+/* Grid */
+.brand-dashboard__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--vx-space-5);
+}
+
+/* Card */
+.brand-dashboard__card {
+  background: var(--vx-surface);
+  border: 1px solid var(--vx-gray-200);
+  border-radius: var(--vx-radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-dashboard__card--profile {
+  grid-column: span 2;
+}
+
+.brand-dashboard__card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--vx-space-4) var(--vx-space-5);
+  border-bottom: 1px solid var(--vx-gray-100);
+}
+
+.brand-dashboard__card-title {
+  font-size: var(--vx-font-base);
+  font-weight: 700;
+  color: var(--vx-gray-900);
+  margin: 0;
+}
+
+.brand-dashboard__card-body {
+  padding: var(--vx-space-5);
+  flex: 1;
+}
+
+.brand-dashboard__card-footer {
+  padding: var(--vx-space-3) var(--vx-space-5);
+  border-top: 1px solid var(--vx-gray-100);
+  background: var(--vx-gray-50);
+}
+
+/* Status badge */
+.brand-dashboard__status {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--vx-space-1) var(--vx-space-2);
+  border-radius: var(--vx-radius-full);
+  font-size: var(--vx-font-xs);
+  font-weight: 600;
+}
+
+.brand-dashboard__status--active {
+  background: var(--vx-success-muted);
+  color: var(--vx-success);
+}
+
+.brand-dashboard__status--incomplete {
+  background: var(--vx-warning-muted);
+  color: var(--vx-warning-dark);
+}
+
+/* Info row */
+.brand-dashboard__info-row {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-2);
+  margin-top: var(--vx-space-3);
+  padding-top: var(--vx-space-3);
+  border-top: 1px solid var(--vx-gray-100);
+  font-size: var(--vx-font-sm);
+}
+
+.brand-dashboard__label {
+  font-weight: 600;
+  color: var(--vx-gray-500);
+}
+
+/* Description */
+.brand-dashboard__description p {
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-600);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Website link */
+.brand-dashboard__website-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vx-space-1);
+  color: var(--vx-primary);
+  font-size: var(--vx-font-sm);
+  text-decoration: none;
+}
+
+.brand-dashboard__website-link:hover {
+  text-decoration: underline;
+}
+
+/* Empty state */
+.brand-dashboard__empty {
+  color: var(--vx-gray-400);
+  font-style: italic;
+  font-size: var(--vx-font-sm);
+  margin: 0;
+}
+
+/* Loading */
+.brand-dashboard__loading {
+  color: var(--vx-gray-400);
+  font-size: var(--vx-font-sm);
+}
+
+/* Coming Soon Card */
+.brand-dashboard__card--coming-soon {
+  background: linear-gradient(135deg, var(--vx-gray-50) 0%, var(--vx-white) 100%);
+  border-style: dashed;
+}
+
+.brand-dashboard__coming-soon-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--vx-space-8) var(--vx-space-6);
+}
+
+.brand-dashboard__coming-soon-icon {
+  font-size: 48px;
+  margin-bottom: var(--vx-space-4);
+}
+
+.brand-dashboard__coming-soon-content h3 {
+  font-size: var(--vx-font-lg);
+  font-weight: 700;
+  color: var(--vx-gray-900);
+  margin: 0 0 var(--vx-space-2);
+}
+
+.brand-dashboard__coming-soon-content p {
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-500);
+  margin: 0;
+  max-width: 300px;
+}
+
+/* Progress bar */
+.brand-dashboard__progress {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-3);
+  margin-top: var(--vx-space-3);
+}
+
+.brand-dashboard__progress-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: 200px;
+}
+
+.brand-dashboard__progress-fill {
+  height: 100%;
+  background: var(--vx-warning);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.brand-dashboard__progress-label {
+  font-size: var(--vx-font-xs);
+  font-weight: 600;
+  color: var(--vx-gray-600);
+  white-space: nowrap;
+}
+
+/* Restricted card */
+.brand-dashboard__card--restricted {
+  opacity: 0.7;
+  border-style: dashed;
+}
+
+.brand-dashboard__restricted-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--vx-space-1) var(--vx-space-2);
+  border-radius: var(--vx-radius-full);
+  font-size: var(--vx-font-xs);
+  font-weight: 600;
+  background: var(--vx-gray-100);
+  color: var(--vx-gray-500);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .brand-dashboard {
+    padding: var(--vx-space-4);
+  }
+
+  .brand-dashboard__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-dashboard__card--profile {
+    grid-column: span 1;
+  }
+
+  .brand-dashboard__incomplete-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .brand-dashboard__title {
+    font-size: var(--vx-font-2xl);
+  }
+}

@@ -1,0 +1,444 @@
+/* FreelancerPublicProfilePage — public, shareable profile (/f/:slug) */
+
+.fpp {
+  min-height: 100vh;
+  background: var(--vx-gray-50, #FAFAFA);
+  color: var(--vx-gray-900, #17181C);
+}
+
+.fpp--center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fpp__spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--vx-gray-200, #E5E7EB);
+  border-top-color: var(--vx-primary, #FF6B2C);
+  border-radius: 50%;
+  animation: fpp-spin 0.8s linear infinite;
+}
+@keyframes fpp-spin { to { transform: rotate(360deg); } }
+
+.fpp__notfound { text-align: center; padding: 48px 24px; }
+.fpp__notfound h1 { margin: 0 0 8px; font-size: 1.5rem; }
+.fpp__notfound p { color: var(--vx-gray-600, #6B7280); margin: 0 0 20px; }
+
+/* ── Top bar ── */
+.fpp__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  /* Matches the marketing site's dark navbar so a shared link feels like Voxlae */
+  background: linear-gradient(180deg, rgba(4, 10, 24, 0.98) 0%, rgba(15, 27, 61, 0.96) 100%);
+  border-bottom: 1px solid rgba(255, 107, 44, 0.18);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 0 30px rgba(255, 107, 44, 0.06);
+}
+
+/* The ghost button's light hover is invisible on navy — invert it here */
+.fpp__topbar .fpp__btn--ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.fpp__topbar .fpp__btn--ghost:hover {
+  background: var(--vx-primary, #FF6B2C);
+  border-color: var(--vx-primary, #FF6B2C);
+  color: #fff;
+}
+.fpp__logo { display: flex; align-items: center; text-decoration: none; }
+
+/* ── Layout: main + sticky rail ── */
+.fpp__layout {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 28px 24px 72px;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 24px;
+  align-items: start;
+}
+
+.fpp__rail { position: sticky; top: 24px; }
+.fpp__rail-card {
+  background: #fff;
+  border: 1px solid var(--vx-gray-100, #F3F4F6);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(23, 24, 28, 0.05);
+}
+.fpp__rate {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 14px;
+}
+.fpp__rate span { font-size: 0.78rem; color: var(--vx-gray-500, #9CA3AF); }
+.fpp__rate b { font-size: 1.15rem; }
+.fpp__rail-note { font-size: 0.82rem; color: var(--vx-gray-500, #9CA3AF); margin: 10px 0 12px; line-height: 1.45; }
+
+/* ── Buttons ── */
+.fpp__btn {
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  font-family: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.fpp__btn--primary { background: var(--vx-primary, #FF6B2C); color: #fff; }
+.fpp__btn--primary:hover { background: var(--vx-primary-dark, #E4551A); }
+.fpp__btn--ghost {
+  background: transparent;
+  color: var(--vx-primary, #FF6B2C);
+  border: 1.5px solid var(--vx-primary, #FF6B2C);
+}
+.fpp__btn--ghost:hover { background: var(--vx-primary-50, #FFF1E8); }
+.fpp__btn--block { display: block; width: 100%; }
+
+/* ── Hero: banner → overlapping avatar → identity → actions (LinkedIn-style) ── */
+.fpp__hero {
+  position: relative;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--vx-gray-100, #F3F4F6);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(23, 24, 28, 0.05);
+}
+
+/* No cover-photo field yet, so the banner is a brand gradient — it still gives
+   the header the depth a flat white card lacks. */
+.fpp__banner {
+  height: 120px;
+  background:
+    radial-gradient(120% 140% at 12% 0%, rgba(255, 107, 44, 0.55) 0%, rgba(255, 107, 44, 0) 55%),
+    linear-gradient(120deg, #0F1B3D 0%, #1A2D5A 55%, #2A1A12 100%);
+}
+
+.fpp__hero-inner {
+  padding: 0 26px 22px;
+}
+.fpp__avatar {
+  position: relative;
+  margin-top: -52px;      /* pull it up over the banner */
+  margin-bottom: 12px;
+  border: 4px solid #fff;
+  box-shadow: 0 2px 10px rgba(23, 24, 28, 0.12);
+}.fpp__name { margin: 0 0 4px; font-size: 1.6rem; letter-spacing: -0.01em; }
+.fpp__headline { margin: 0 0 10px; font-size: 1.02rem; color: var(--vx-gray-600, #6B7280); }
+
+/* ── Chips ── */
+.fpp__chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.fpp__chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--vx-gray-100, #F3F4F6);
+  color: var(--vx-gray-700, #374151);
+}
+.fpp__chip--small { padding: 3px 9px; font-size: 0.75rem; }
+.fpp__chip--available { background: #E4F3ED; color: #1B7F5E; }
+.fpp__chip--open_to_offers { background: var(--vx-primary-50, #FFF1E8); color: var(--vx-primary-dark, #C24413); }
+.fpp__chip--booked { background: #FBE8E5; color: #C0392B; }
+
+/* ── Sections ── */
+.fpp__section {
+  background: #fff;
+  border: 1px solid var(--vx-gray-100, #F3F4F6);
+  border-radius: 16px;
+  padding: 24px 26px;
+  margin-top: 18px;
+  box-shadow: 0 1px 3px rgba(23, 24, 28, 0.05);
+}
+.fpp__section-title {
+  margin: 0 0 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--vx-gray-500, #9CA3AF);
+}
+.fpp__bio { margin: 0; line-height: 1.65; white-space: pre-line; }
+.fpp__inline-unlock {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 8px;
+  color: var(--vx-primary, #FF6B2C);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+.fpp__inline-unlock:hover { text-decoration: underline; }
+
+/* ── Portfolio grid ── */
+.fpp__portfolio {
+  display: grid;
+  /* auto-fit (not auto-fill) collapses empty tracks, so a lone project
+     spans the row instead of leaving a hole beside it */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+.fpp__project {
+  border: 1px solid var(--vx-gray-100, #F3F4F6);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--vx-gray-50, #FAFAFA);
+  display: flex;
+  flex-direction: column;
+}
+.fpp__project-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.fpp__project-body { padding: 14px 16px 16px; }
+.fpp__project-title { margin: 0 0 6px; font-size: 1rem; line-height: 1.35; }
+.fpp__project-outcome { margin: 0 0 10px; font-size: 0.88rem; color: var(--vx-gray-600, #6B7280); line-height: 1.5; }
+.fpp__project-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.fpp__project-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vx-primary, #FF6B2C);
+  text-decoration: none;
+}
+.fpp__project-link:hover { text-decoration: underline; }
+
+/* Locked teaser card (anonymous) */
+.fpp__project--locked {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border-style: dashed;
+  border-color: var(--vx-gray-200, #E5E7EB);
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  text-align: left;
+  color: var(--vx-gray-600, #6B7280);
+  transition: border-color 0.2s ease;
+}
+.fpp__project--locked:hover { border-color: var(--vx-primary, #FF6B2C); }
+.fpp__project--locked b { color: var(--vx-gray-900, #17181C); }
+.fpp__project--wide { grid-column: 1 / -1; }
+.fpp__lock { font-size: 1.4rem; }
+
+/* ── Experience timeline ── */
+.fpp__timeline { list-style: none; margin: 0; padding: 0; }
+.fpp__timeline-item {
+  position: relative;
+  padding: 0 0 22px 22px;
+  border-left: 2px solid var(--vx-gray-100, #F3F4F6);
+}
+.fpp__timeline-item:last-child { padding-bottom: 0; }
+.fpp__timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--vx-primary, #FF6B2C);
+}
+.fpp__timeline-title { margin: 0 0 2px; font-size: 1rem; }
+.fpp__timeline-meta { margin: 0 0 6px; font-size: 0.85rem; color: var(--vx-gray-500, #9CA3AF); }
+.fpp__timeline-desc { margin: 0; font-size: 0.92rem; color: var(--vx-gray-600, #6B7280); line-height: 1.55; }
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .fpp__layout { grid-template-columns: 1fr; padding: 20px 16px 96px; }
+  .fpp__rail { position: fixed; top: auto; left: 0; right: 0; bottom: 0; z-index: 40; padding: 0; }
+  .fpp__rail-card {
+    border-radius: 16px 16px 0 0;
+    border-bottom: none;
+    box-shadow: 0 -4px 20px rgba(23, 24, 28, 0.1);
+  }
+  .fpp__rate { flex-direction: row; align-items: baseline; gap: 8px; margin-bottom: 10px; }
+  .fpp__portfolio { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fpp__spinner { animation-duration: 1.6s; }
+  .fpp__btn, .fpp__project--locked { transition: none; }
+}
+
+
+/* ── Loading / not-found slot (works standalone and embedded) ── */
+.fpp__center-slot {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Embedded in dashboard (signed-in view of the same page) ── */
+.fpp--embedded {
+  min-height: auto;
+  background: transparent;
+}
+.fpp--embedded .fpp__layout {
+  padding-top: 8px;
+}
+
+@media (max-width: 860px) {
+  /* Inside the dashboard, the app's own mobile bottom nav is present —
+     keep the contact rail in normal flow instead of pinning it over the nav */
+  .fpp--embedded .fpp__rail {
+    position: static;
+    padding: 0;
+  }
+  .fpp--embedded .fpp__rail-card {
+    border-radius: 14px;
+    border-bottom: 1px solid var(--vx-gray-100, #F3F4F6);
+    box-shadow: 0 1px 3px rgba(23, 24, 28, 0.05);
+  }
+  .fpp--embedded .fpp__layout { padding-bottom: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+}
+
+/* ── Hero actions (Edit + Share) ────────────────────────────
+   Deliberately in normal flow, never absolutely positioned: on a phone the
+   hero stacks, and an absolute button would land on top of the name. */
+.fpp__hero-actions {
+  margin-left: auto;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.fpp__btn--sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 14px;
+  font-size: 0.86rem;
+}
+
+.fpp__btn--outline {
+  background: #fff;
+  color: var(--vx-gray-700, #374151);
+  border: 1.5px solid var(--vx-gray-200, #E5E7EB);
+}
+
+.fpp__btn--outline:hover {
+  border-color: var(--vx-primary, #FF6B2C);
+  color: var(--vx-primary, #FF6B2C);
+}
+
+/* Owner view has no contact rail — let the content use the full width */
+
+
+/* ── Grouped chip rows (Skills / Tools / Languages) ── */
+.fpp__group + .fpp__group { margin-top: 18px; }
+
+.fpp__group-title {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--vx-gray-600, #6B7280);
+}
+
+.fpp__chip--subtle {
+  background: transparent;
+  border: 1px solid var(--vx-gray-200, #E5E7EB);
+  color: var(--vx-gray-600, #6B7280);
+  font-weight: 500;
+}
+
+/* ── Link metadata on portfolio cards ── */
+.fpp__project-site {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--vx-gray-400, #B6BCC6);
+}
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 860px) {
+
+  /* Equal-width buttons side by side, comfortably tappable */
+  .fpp__hero-actions > .fpp__btn {
+    flex: 1;
+    min-height: 44px;
+  }
+}
+
+
+/* ── Identity block (stacked, left-aligned) ── */
+.fpp__hero-inner .fpp__name {
+  margin: 0 0 4px;
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.fpp__hero-inner .fpp__headline {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--vx-gray-800, #1F2937);
+}
+
+/* Location · languages as one quiet line — as chips these each took a whole
+   row on a phone and competed with the name for attention. */
+.fpp__meta {
+  margin: 0 0 12px;
+  font-size: 0.88rem;
+  color: var(--vx-gray-500, #9CA3AF);
+  line-height: 1.45;
+}
+
+.fpp__hero-inner .fpp__chips { margin-bottom: 16px; }
+
+.fpp__hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 860px) {
+  .fpp__banner { height: 92px; }
+  .fpp__hero-inner { padding: 0 18px 18px; }
+
+  .fpp__avatar {
+    --vx-avatar-size: 84px;
+    margin-top: -42px;
+  }
+
+  .fpp__hero-inner .fpp__name { font-size: 1.32rem; }
+  .fpp__hero-inner .fpp__headline { font-size: 0.94rem; }
+
+  /* Buttons share the row and stay thumb-sized */
+  .fpp__hero-actions > .fpp__btn {
+    flex: 1;
+    min-height: 44px;
+  }
+}

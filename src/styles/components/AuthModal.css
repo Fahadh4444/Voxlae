@@ -1,0 +1,425 @@
+/* ============================================
+   AuthModal — Sign-in/Sign-up Modal Styles
+   ============================================ */
+
+.auth-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--vx-space-4);
+  animation: vx-fadeIn 0.2s ease-out;
+}
+
+.auth-modal {
+  position: relative;
+  background: var(--vx-surface);
+  border-radius: var(--vx-radius-2xl);
+  padding: var(--vx-space-10);
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--vx-shadow-xl);
+  animation: vx-modalSlideUp 0.3s ease-out;
+}
+
+@keyframes vx-modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.auth-modal__close {
+  position: absolute;
+  top: var(--vx-space-4);
+  right: var(--vx-space-4);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: var(--vx-radius-full);
+  cursor: pointer;
+  color: var(--vx-gray-500);
+  transition: all 0.2s ease;
+}
+
+.auth-modal__close:hover {
+  background: var(--vx-gray-100);
+  color: var(--vx-gray-700);
+}
+
+.auth-modal__content {
+  text-align: center;
+}
+
+.auth-modal__title {
+  font-size: var(--vx-font-2xl);
+  font-weight: 800;
+  color: var(--vx-gray-900);
+  margin-bottom: var(--vx-space-3);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+/* Scoped under .auth-modal so these win over the landing page's
+   `.vxl p { margin: 0 }` reset — the modal renders inside `.vxl`. */
+.auth-modal .auth-modal__subtitle {
+  font-size: var(--vx-font-base);
+  color: var(--vx-gray-500);
+  margin-bottom: var(--vx-space-8);
+  line-height: 1.6;
+}
+
+.auth-modal__providers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-3);
+}
+
+.auth-modal__provider {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-modal__google-btn {
+  display: flex;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.auth-modal__provider-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vx-space-3);
+  width: 320px;
+  padding: var(--vx-space-3) var(--vx-space-6);
+  border: 1px solid var(--vx-gray-200);
+  border-radius: var(--vx-radius-lg);
+  background: var(--vx-surface);
+  font-size: var(--vx-font-base);
+  font-weight: 500;
+  color: var(--vx-gray-700);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-modal__provider-btn:hover {
+  background: var(--vx-gray-50);
+  border-color: var(--vx-gray-300);
+  transform: translateY(-1px);
+}
+
+.auth-modal__provider-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.auth-modal__divider {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-4);
+  margin: var(--vx-space-8) 0 var(--vx-space-6);
+  color: var(--vx-gray-400);
+  font-size: var(--vx-font-sm);
+}
+
+.auth-modal__divider::before,
+.auth-modal__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--vx-gray-200);
+}
+
+.auth-modal .auth-modal__alternate {
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-500);
+  margin-top: var(--vx-space-2);
+  line-height: 1.5;
+}
+
+.auth-modal__link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--vx-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.auth-modal__link:hover {
+  color: var(--vx-primary-dark);
+  text-decoration: underline;
+}
+
+/* "Forgot password?" — small, centered, just under the sign-in button */
+.auth-modal__forgot-link {
+  display: block;
+  margin: 12px auto 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .auth-modal {
+    padding: var(--vx-space-6);
+    margin: var(--vx-space-4);
+  }
+
+  .auth-modal__provider-btn,
+  .auth-modal__google-btn {
+    width: 100%;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Multi-Auth Form Styles
+   ═══════════════════════════════════════════ */
+
+.auth-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-4);
+}
+
+.auth-modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-2);
+  text-align: left;
+}
+
+.auth-modal__field label {
+  font-size: var(--vx-font-sm);
+  font-weight: 500;
+  color: var(--vx-gray-700);
+}
+
+.auth-modal__field input {
+  padding: 0.875rem 1rem;
+  font-size: var(--vx-font-base);
+  background: var(--vx-surface);
+  border: 1px solid var(--vx-gray-300);
+  border-radius: var(--vx-radius-lg);
+  color: var(--vx-gray-900);
+  transition: all 0.2s ease;
+}
+
+.auth-modal__field input::placeholder {
+  color: var(--vx-gray-400);
+}
+
+.auth-modal__field input:focus {
+  outline: none;
+  border-color: var(--vx-primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.1);
+}
+
+.auth-modal__field input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--vx-gray-50);
+}
+
+.auth-modal__field-wrap {
+  position: relative;
+  display: flex;
+}
+
+.auth-modal__field-wrap input {
+  width: 100%;
+  padding-right: 2.75rem;
+}
+
+.auth-modal__field-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 4px;
+  color: var(--vx-gray-400);
+  cursor: pointer;
+}
+
+.auth-modal__field-toggle:hover {
+  color: var(--vx-gray-700);
+}
+
+.auth-modal__field-toggle:focus-visible {
+  outline: 2px solid var(--vx-primary);
+  outline-offset: 1px;
+}
+
+/* Phone input with country code dropdown */
+.auth-modal__phone-input {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.auth-modal__country-code {
+  padding: 0.875rem 0.75rem;
+  font-size: var(--vx-font-base);
+  background: var(--vx-surface);
+  border: 1px solid var(--vx-gray-300);
+  border-radius: var(--vx-radius-lg);
+  color: var(--vx-gray-900);
+  cursor: pointer;
+  min-width: 100px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.auth-modal__country-code:focus {
+  outline: none;
+  border-color: var(--vx-primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.1);
+}
+
+.auth-modal__country-code:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--vx-gray-50);
+}
+
+.auth-modal__phone-input input {
+  flex: 1;
+  min-width: 0;
+}
+
+.auth-modal__submit-btn {
+  padding: 0.875rem 1.5rem;
+  font-size: var(--vx-font-base);
+  font-weight: 600;
+  color: var(--vx-white);
+  background: linear-gradient(135deg, #FF6B2C 0%, #FF8F5C 100%);
+  border: none;
+  border-radius: var(--vx-radius-lg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: var(--vx-space-2);
+}
+
+.auth-modal__submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 107, 44, 0.3);
+}
+
+.auth-modal__submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.auth-modal__submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-modal__back-btn {
+  padding: var(--vx-space-3);
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-500);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.auth-modal__back-btn:hover:not(:disabled) {
+  color: var(--vx-gray-700);
+}
+
+.auth-modal__back-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Provider button variants */
+.auth-modal__provider-btn--email,
+.auth-modal__provider-btn--phone {
+  width: 320px;
+}
+
+.auth-modal__provider-btn--email:hover,
+.auth-modal__provider-btn--phone:hover {
+  background: var(--vx-gray-50);
+  border-color: var(--vx-gray-300);
+}
+
+/* ── Waitlist form (WaitlistForm.tsx) ── */
+.auth-modal__roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vx-space-2);
+}
+
+.auth-modal__role {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0.625rem 0.75rem;
+  font-size: var(--vx-font-sm);
+  font-weight: 600;
+  color: var(--vx-gray-700);
+  background: var(--vx-surface);
+  border: 1.5px solid var(--vx-gray-200);
+  border-radius: var(--vx-radius-lg);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.auth-modal__role:hover:not(:disabled) {
+  border-color: #FF8F5C;
+}
+
+.auth-modal__role--active {
+  color: #FF6B2C;
+  border-color: #FF6B2C;
+  background: rgba(255, 107, 44, 0.06);
+}
+
+.auth-modal__error {
+  margin: 0;
+  font-size: var(--vx-font-sm);
+  color: #d93025;
+}
+
+/* Shown on the waitlist view when a sign-in was refused because the email isn't approved yet. */
+.auth-modal__notice {
+  margin: 0 0 var(--vx-space-2);
+  padding: var(--vx-space-3) var(--vx-space-4);
+  border-radius: var(--vx-radius-lg);
+  background: rgba(255, 107, 44, 0.08);
+  border: 1px solid rgba(255, 107, 44, 0.25);
+  color: var(--vx-gray-700);
+  font-size: var(--vx-font-sm);
+  line-height: 1.5;
+}
+
+/* Invite signup: which Google account to use. */
+.auth-modal__hint {
+  margin: calc(var(--vx-space-2) * -1) 0 0;
+  text-align: center;
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-500);
+}

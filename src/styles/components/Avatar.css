@@ -1,0 +1,30 @@
+/* Avatar — image with generated fallback (see Avatar.tsx) */
+
+/* Size comes from --vx-avatar-size (set by the component, overridable in a
+   media query), so pages can shrink the avatar responsively. */
+.vx-avatar {
+  width: var(--vx-avatar-size, 48px);
+  height: var(--vx-avatar-size, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+  background: var(--vx-gray-100);
+}
+
+/* Initials fallback — colour is set inline (hashed from the name) */
+.vx-avatar--initials {
+  color: #fff;
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
+  font-size: calc(var(--vx-avatar-size, 48px) * 0.4);
+}
+
+/* Brand-mark fallback, used when there's no name to derive an initial from */
+.vx-avatar--brand {
+  background: var(--vx-gray-100);
+}

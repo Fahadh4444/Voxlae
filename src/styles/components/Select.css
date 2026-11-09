@@ -1,0 +1,70 @@
+/* ============================================
+   VOXLAE Select (Gradient-First)
+   ============================================ */
+
+.vx-select-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-2);
+}
+.vx-select-group--full {
+  width: 100%;
+}
+
+.vx-select-label {
+  font-size: var(--vx-font-sm);
+  font-weight: 600;
+  color: var(--vx-gray-700);
+}
+
+.vx-select-wrapper {
+  position: relative;
+}
+
+.vx-select {
+  width: 100%;
+  padding: var(--vx-space-3) var(--vx-space-4);
+  padding-right: 2.5rem;
+  background: var(--vx-gradient-surface);
+  border: 2px solid var(--vx-gray-200);
+  border-radius: var(--vx-radius-lg);
+  font-size: var(--vx-font-base);
+  color: var(--vx-gray-800);
+  cursor: pointer;
+  appearance: none;
+  transition: all var(--vx-transition-fast);
+}
+.vx-select:hover:not(:disabled) {
+  border-color: var(--vx-gray-300);
+  box-shadow: var(--vx-shadow-sm);
+}
+.vx-select:focus {
+  outline: none;
+  border-color: var(--vx-primary);
+  box-shadow: 0 0 0 3px var(--vx-primary-muted), var(--vx-shadow-glow-soft);
+}
+.vx-select:disabled {
+  background: var(--vx-gray-100);
+  color: var(--vx-gray-400);
+  cursor: not-allowed;
+}
+
+.vx-select--error {
+  border-color: var(--vx-error);
+}
+
+.vx-select-chevron {
+  position: absolute;
+  right: var(--vx-space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--vx-gray-400);
+  display: flex;
+}
+
+.vx-select-error {
+  font-size: var(--vx-font-xs);
+  color: var(--vx-error);
+  font-weight: 500;
+}

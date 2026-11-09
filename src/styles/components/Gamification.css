@@ -1,0 +1,684 @@
+/* ============================================
+   VOXLAE Gamification Components
+   ============================================ */
+
+/* ── Level Progress ───────────────────────── */
+.vx-level-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-3);
+}
+
+.vx-level-progress--compact {
+  gap: var(--vx-space-2);
+}
+
+.vx-level-progress__header {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-3);
+}
+
+.vx-level-progress__level-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--vx-shadow-sm);
+  flex-shrink: 0;
+}
+
+.vx-level-progress--compact .vx-level-progress__level-badge {
+  width: 32px;
+  height: 32px;
+}
+
+.vx-level-progress__level-number {
+  color: var(--vx-white);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.vx-level-progress--compact .vx-level-progress__level-number {
+  font-size: 0.875rem;
+}
+
+.vx-level-progress__info {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-2);
+  flex: 1;
+  min-width: 0;
+}
+
+.vx-level-progress__name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--vx-gray-900);
+}
+
+.vx-level-progress--compact .vx-level-progress__name {
+  font-size: 0.875rem;
+}
+
+.vx-level-progress__state-badge {
+  padding: 2px 8px;
+  border-radius: var(--vx-radius-full);
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.vx-level-progress__state-badge--stabilizing {
+  background: var(--vx-warning-bg);
+  color: var(--vx-warning);
+}
+
+.vx-level-progress__xp {
+  display: flex;
+  align-items: baseline;
+  gap: var(--vx-space-1);
+  font-size: 0.875rem;
+}
+
+.vx-level-progress__xp-current {
+  font-weight: 700;
+  color: var(--vx-primary);
+}
+
+.vx-level-progress__xp-separator {
+  color: var(--vx-gray-400);
+}
+
+.vx-level-progress__xp-required {
+  color: var(--vx-gray-500);
+}
+
+.vx-level-progress__bar-container {
+  height: 8px;
+  background: var(--vx-gray-200);
+  border-radius: var(--vx-radius-full);
+  overflow: hidden;
+}
+
+.vx-level-progress--compact .vx-level-progress__bar-container {
+  height: 6px;
+}
+
+.vx-level-progress__bar {
+  height: 100%;
+  border-radius: var(--vx-radius-full);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vx-level-progress__description {
+  font-size: 0.875rem;
+  color: var(--vx-gray-600);
+  margin: 0;
+}
+
+/* ── Task Card ────────────────────────────── */
+.vx-task-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--vx-space-3);
+  padding: var(--vx-space-4);
+  background: var(--vx-gradient-surface);
+  border-radius: var(--vx-radius-lg);
+  border: 1px solid var(--vx-gray-200);
+  transition: all var(--vx-transition-normal);
+}
+
+.vx-task-card:hover {
+  border-color: var(--vx-gray-300);
+  box-shadow: var(--vx-shadow-sm);
+}
+
+.vx-task-card--compact {
+  padding: var(--vx-space-3);
+}
+
+.vx-task-card__status-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  background: var(--vx-gray-200);
+  color: var(--vx-gray-500);
+}
+
+.vx-task-card--completed .vx-task-card__status-icon {
+  background: var(--vx-success-bg);
+  color: var(--vx-success);
+}
+
+.vx-task-card--in-progress .vx-task-card__status-icon {
+  background: var(--vx-primary-muted);
+  color: var(--vx-primary);
+}
+
+.vx-task-card--expired .vx-task-card__status-icon {
+  background: var(--vx-error-bg);
+  color: var(--vx-error);
+}
+
+.vx-task-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.vx-task-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--vx-space-2);
+  margin-bottom: var(--vx-space-1);
+}
+
+.vx-task-card__name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--vx-gray-900);
+}
+
+.vx-task-card--completed .vx-task-card__name {
+  text-decoration: line-through;
+  color: var(--vx-gray-500);
+}
+
+.vx-task-card__track {
+  padding: 2px 8px;
+  border-radius: var(--vx-radius-full);
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.vx-task-card__track--level {
+  background: var(--vx-info-bg);
+  color: var(--vx-info);
+}
+
+.vx-task-card__track--weekly {
+  background: var(--vx-primary-muted);
+  color: var(--vx-primary);
+}
+
+.vx-task-card__track--recovery {
+  background: var(--vx-warning-bg);
+  color: var(--vx-warning);
+}
+
+.vx-task-card__description {
+  font-size: 0.8125rem;
+  color: var(--vx-gray-600);
+  margin: 0 0 var(--vx-space-2);
+  line-height: 1.4;
+}
+
+.vx-task-card__progress-bar {
+  height: 4px;
+  background: var(--vx-gray-200);
+  border-radius: var(--vx-radius-full);
+  overflow: hidden;
+  margin-bottom: var(--vx-space-2);
+}
+
+.vx-task-card__progress-fill {
+  height: 100%;
+  background: var(--vx-primary);
+  border-radius: var(--vx-radius-full);
+  transition: width 0.4s ease;
+}
+
+.vx-task-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--vx-space-2);
+}
+
+.vx-task-card__xp {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--vx-primary);
+}
+
+.vx-task-card--completed .vx-task-card__xp {
+  color: var(--vx-success);
+}
+
+.vx-task-card__time-left {
+  font-size: 0.75rem;
+  color: var(--vx-gray-500);
+}
+
+/* ── Task List ────────────────────────────── */
+.vx-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-3);
+}
+
+.vx-task-list--compact {
+  gap: var(--vx-space-2);
+}
+
+.vx-task-list--empty {
+  padding: var(--vx-space-8);
+  text-align: center;
+}
+
+.vx-task-list__empty-message {
+  color: var(--vx-gray-500);
+  margin: 0;
+}
+
+.vx-task-list__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-2);
+}
+
+.vx-task-list__group-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--vx-gray-500);
+  margin: 0;
+  padding-left: var(--vx-space-1);
+}
+
+.vx-task-list__group-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-2);
+}
+
+/* ── Streak Badge ─────────────────────────── */
+.vx-streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vx-space-2);
+  padding: var(--vx-space-2) var(--vx-space-3);
+  background: linear-gradient(135deg, var(--vx-primary-muted), rgba(255,179,71,0.12));
+  border-radius: var(--vx-radius-full);
+  border: 1px solid rgba(255,107,44,0.2);
+}
+
+.vx-streak-badge--inactive {
+  background: var(--vx-gray-100);
+  border-color: var(--vx-gray-200);
+}
+
+.vx-streak-badge--small {
+  padding: var(--vx-space-1) var(--vx-space-2);
+}
+
+.vx-streak-badge--large {
+  padding: var(--vx-space-3) var(--vx-space-4);
+}
+
+.vx-streak-badge__icon {
+  font-size: 1rem;
+}
+
+.vx-streak-badge--large .vx-streak-badge__icon {
+  font-size: 1.25rem;
+}
+
+.vx-streak-badge__content {
+  display: flex;
+  align-items: baseline;
+  gap: var(--vx-space-1);
+}
+
+.vx-streak-badge__count {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--vx-primary-dark);
+}
+
+.vx-streak-badge--inactive .vx-streak-badge__count {
+  color: var(--vx-gray-500);
+}
+
+.vx-streak-badge--large .vx-streak-badge__count {
+  font-size: 1.25rem;
+}
+
+.vx-streak-badge__label {
+  font-size: 0.75rem;
+  color: var(--vx-gray-600);
+}
+
+.vx-streak-badge__longest {
+  font-size: 0.625rem;
+  color: var(--vx-gray-500);
+  margin-left: var(--vx-space-2);
+}
+
+/* ── Gamification Widget ──────────────────── */
+.vx-gamification-widget {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-4);
+}
+
+.vx-gamification-widget--loading,
+.vx-gamification-widget--error {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vx-gamification-widget__skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-3);
+  width: 100%;
+}
+
+.vx-skeleton {
+  background: linear-gradient(90deg, var(--vx-gray-200) 25%, var(--vx-gray-100) 50%, var(--vx-gray-200) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--vx-radius-md);
+}
+
+.vx-skeleton--circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.vx-skeleton--text {
+  height: 20px;
+  width: 60%;
+}
+
+.vx-skeleton--progress {
+  height: 8px;
+  width: 100%;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.vx-gamification-widget__error-message {
+  color: var(--vx-error);
+  margin: 0;
+}
+
+.vx-gamification-widget__retry-btn {
+  margin-top: var(--vx-space-3);
+  padding: var(--vx-space-2) var(--vx-space-4);
+  background: var(--vx-primary);
+  color: var(--vx-white);
+  border: none;
+  border-radius: var(--vx-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--vx-transition-fast);
+}
+
+.vx-gamification-widget__retry-btn:hover {
+  background: var(--vx-primary-dark);
+}
+
+.vx-gamification-widget__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--vx-space-3);
+}
+
+.vx-gamification-widget__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--vx-gray-900);
+  margin: 0;
+}
+
+.vx-gamification-widget--full .vx-gamification-widget__title {
+  font-size: 1.125rem;
+}
+
+.vx-gamification-widget__section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--vx-gray-500);
+  margin: 0 0 var(--vx-space-2);
+}
+
+.vx-gamification-widget__features {
+  padding-top: var(--vx-space-3);
+  border-top: 1px solid var(--vx-gray-200);
+}
+
+.vx-gamification-widget__feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vx-space-2);
+}
+
+.vx-gamification-widget__feature {
+  padding: var(--vx-space-1) var(--vx-space-2);
+  border-radius: var(--vx-radius-md);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.vx-gamification-widget__feature--unlocked {
+  background: var(--vx-success-bg);
+  color: var(--vx-success);
+}
+
+.vx-gamification-widget__feature--locked {
+  background: var(--vx-gray-100);
+  color: var(--vx-gray-500);
+}
+
+.vx-gamification-widget__tasks {
+  padding-top: var(--vx-space-3);
+  border-top: 1px solid var(--vx-gray-200);
+}
+
+.vx-gamification-widget__sync-btn {
+  align-self: flex-start;
+  padding: var(--vx-space-2) var(--vx-space-4);
+  background: transparent;
+  color: var(--vx-gray-600);
+  border: 1px solid var(--vx-gray-300);
+  border-radius: var(--vx-radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--vx-transition-fast);
+}
+
+.vx-gamification-widget__sync-btn:hover {
+  border-color: var(--vx-primary);
+  color: var(--vx-primary);
+}
+
+.vx-gamification-widget__sync-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Feature Locked Overlay ───────────────── */
+.vx-feature-locked {
+  position: relative;
+}
+
+.vx-feature-locked__content {
+  transition: filter 0.3s ease;
+}
+
+.vx-feature-locked__content--blurred {
+  filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.vx-feature-locked__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--vx-surface-scrim);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+.vx-feature-locked__modal {
+  background: var(--vx-surface);
+  padding: var(--vx-space-8);
+  border-radius: var(--vx-radius-2xl);
+  box-shadow: var(--vx-shadow-xl);
+  text-align: center;
+  max-width: 320px;
+}
+
+.vx-feature-locked__icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: var(--vx-space-4);
+}
+
+.vx-feature-locked__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--vx-gray-900);
+  margin: 0 0 var(--vx-space-2);
+}
+
+.vx-feature-locked__message {
+  font-size: 0.9375rem;
+  color: var(--vx-gray-700);
+  margin: 0 0 var(--vx-space-3);
+}
+
+.vx-feature-locked__progress {
+  font-size: 0.875rem;
+  color: var(--vx-primary);
+  font-weight: 600;
+  margin: 0 0 var(--vx-space-4);
+}
+
+.vx-feature-locked__current {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vx-space-2);
+  padding-top: var(--vx-space-3);
+  border-top: 1px solid var(--vx-gray-200);
+}
+
+.vx-feature-locked__current-label {
+  font-size: 0.75rem;
+  color: var(--vx-gray-500);
+}
+
+.vx-feature-locked__current-level {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--vx-gray-700);
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 768px) {
+  .vx-level-progress__header {
+    flex-wrap: wrap;
+  }
+  
+  .vx-level-progress__xp {
+    order: 3;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: var(--vx-space-2);
+  }
+  
+  .vx-task-card {
+    padding: var(--vx-space-3);
+  }
+  
+  .vx-task-card__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--vx-space-1);
+  }
+  
+  .vx-streak-badge {
+    padding: var(--vx-space-1) var(--vx-space-2);
+  }
+  
+  .vx-streak-badge--large {
+    padding: var(--vx-space-2) var(--vx-space-3);
+  }
+  
+  .vx-gamification-widget__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .vx-feature-locked__modal {
+    margin: var(--vx-space-4);
+    padding: var(--vx-space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .vx-level-progress__level-badge {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .vx-level-progress__level-number {
+    font-size: 0.875rem;
+  }
+  
+  .vx-task-card__status-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 0.625rem;
+  }
+  
+  .vx-task-card__name {
+    font-size: 0.8125rem;
+  }
+  
+  .vx-task-card__description {
+    font-size: 0.75rem;
+  }
+  
+  .vx-streak-badge__count {
+    font-size: 0.875rem;
+  }
+  
+  .vx-feature-locked__icon {
+    font-size: 2.5rem;
+  }
+  
+  .vx-feature-locked__title {
+    font-size: 1.125rem;
+  }
+}

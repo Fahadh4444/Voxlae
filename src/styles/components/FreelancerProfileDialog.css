@@ -1,0 +1,190 @@
+/* FreelancerProfileDialog — profile edit form (see FreelancerProfileDialog.tsx) */
+
+.fpd__section {
+  padding-bottom: 26px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid var(--vx-gray-100);
+}
+
+.fpd__section:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.fpd__section-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 0 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--vx-gray-500);
+}
+
+.fpd__section-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--vx-gray-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.fpd__field { position: relative; }
+.fpd__field + .fpd__field { margin-top: 16px; }
+
+.fpd__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.fpd__label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--vx-gray-700);
+}
+
+.fpd__optional {
+  margin-left: 5px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--vx-gray-400);
+}
+
+.fpd__input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--vx-gray-200);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-family: inherit;
+  background: var(--vx-surface);
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fpd__input:focus {
+  outline: none;
+  border-color: var(--vx-primary, #FF6B2C);
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.12);
+}
+
+.fpd__textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.55;
+}
+
+.fpd__count {
+  position: absolute;
+  right: 2px;
+  bottom: -16px;
+  font-size: 0.72rem;
+  color: var(--vx-gray-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.fpd__hint {
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--vx-gray-500);
+}
+
+.fpd__hint--lead { margin: -8px 0 16px; }
+.fpd__hint strong { color: var(--vx-gray-700); font-weight: 600; }
+
+.fpd__check {
+  display: flex; align-items: flex-start; gap: 10px; margin-top: 12px;
+  padding: 12px 14px; border: 1px solid var(--vx-gray-200); border-radius: 10px;
+  background: var(--vx-gray-50); cursor: pointer;
+  font-size: 0.84rem; line-height: 1.45; color: var(--vx-gray-600);
+}
+.fpd__check input { margin-top: 2px; width: 16px; height: 16px; flex-shrink: 0; accent-color: var(--vx-primary, #FF6B2C); cursor: pointer; }
+.fpd__check b { color: var(--vx-gray-800); }
+
+.fpd__grid-2,
+.fpd__grid-3 {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.fpd__grid-2 { grid-template-columns: 1fr 1fr; }
+.fpd__grid-3 { grid-template-columns: 0.9fr 1.2fr 0.9fr; }
+
+.fpd__grid-2 .fpd__field + .fpd__field,
+.fpd__grid-3 .fpd__field + .fpd__field { margin-top: 0; }
+
+/* ── Repeatable cards (projects, roles) ── */
+.fpd__card {
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid var(--vx-gray-200);
+  border-radius: 12px;
+  background: var(--vx-gray-50);
+}
+
+.fpd__card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.fpd__card-index {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--vx-gray-500);
+}
+
+.fpd__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--vx-gray-400);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.fpd__icon-btn:hover {
+  background: #FBE8E5;
+  color: #C0392B;
+}
+
+/* ── Live link preview inside a project card ── */
+.fpd__preview { margin-top: 14px; }
+
+.fpd__preview-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--vx-gray-400);
+}
+
+@media (max-width: 640px) {
+  .fpd__grid-2,
+  .fpd__grid-3 { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fpd__input,
+  .fpd__icon-btn { transition: none; }
+}

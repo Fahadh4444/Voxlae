@@ -1,0 +1,229 @@
+/* ============================================
+   TimeSeriesChart — Multi-line time series
+   ============================================ */
+
+.vx-ts-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-4);
+}
+
+/* ── Controls ── */
+
+.vx-ts-chart__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--vx-space-3);
+}
+
+.vx-ts-chart__metric-selector {
+  display: flex;
+  gap: var(--vx-space-1);
+  padding: 3px;
+  background: var(--vx-gray-100);
+  border-radius: var(--vx-radius-lg);
+}
+
+.vx-ts-chart__metric-btn {
+  padding: var(--vx-space-1) var(--vx-space-4);
+  border: none;
+  background: transparent;
+  font-family: var(--vx-font-family);
+  font-size: var(--vx-font-sm);
+  font-weight: 600;
+  color: var(--vx-gray-500);
+  border-radius: var(--vx-radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vx-ts-chart__metric-btn:hover {
+  color: var(--vx-gray-700);
+}
+
+.vx-ts-chart__metric-btn--active {
+  background: var(--vx-surface-raised);
+  color: var(--vx-gray-900);
+  box-shadow: var(--vx-shadow-sm);
+}
+
+.vx-ts-chart__metric-btn--unavailable {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.vx-ts-chart__metric-btn--unavailable:hover {
+  color: inherit;
+}
+
+.vx-ts-chart__metric-na {
+  font-size: 0.7em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--vx-gray-400);
+}
+
+/* ── Legend ── */
+
+.vx-ts-chart__legend {
+  display: flex;
+  gap: var(--vx-space-4);
+}
+
+.vx-ts-chart__legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-2);
+  font-size: var(--vx-font-xs);
+  font-weight: 500;
+  color: var(--vx-gray-600);
+}
+
+.vx-ts-chart__legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--vx-radius-full);
+  flex-shrink: 0;
+}
+
+/* ── Canvas ── */
+
+.vx-ts-chart__data-note {
+  margin: 0 0 var(--vx-space-3);
+  padding: var(--vx-space-2) var(--vx-space-3);
+  background: var(--vx-gray-50, rgba(0, 0, 0, 0.03));
+  border-left: 3px solid var(--vx-gray-300, #cbd5e1);
+  border-radius: var(--vx-radius-sm, 6px);
+  font-size: var(--vx-font-xs);
+  color: var(--vx-gray-600, #475569);
+  line-height: 1.4;
+}
+
+.vx-ts-chart__canvas {
+  position: relative;
+  width: 100%;
+}
+
+.vx-ts-chart__empty-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-400, #94a3b8);
+  text-align: center;
+  padding: var(--vx-space-4);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.vx-ts-chart__svg {
+  display: block;
+  overflow: visible;
+}
+
+/* ── Grid ── */
+
+.vx-ts-chart__grid-line {
+  stroke: var(--vx-border-subtle);
+  stroke-width: 1;
+  stroke-dasharray: none;
+}
+
+/* ── Axis labels ── */
+
+.vx-ts-chart__y-label {
+  fill: var(--vx-gray-400);
+  font-size: 11px;
+  font-family: var(--vx-font-family);
+  text-anchor: end;
+  dominant-baseline: middle;
+}
+
+.vx-ts-chart__x-label {
+  fill: var(--vx-gray-400);
+  font-size: 11px;
+  font-family: var(--vx-font-family);
+  text-anchor: middle;
+  dominant-baseline: auto;
+}
+
+/* ── Lines ── */
+
+.vx-ts-chart__line {
+  vector-effect: non-scaling-stroke;
+  transition: opacity 0.2s ease;
+}
+
+.vx-ts-chart__dot {
+  pointer-events: none;
+}
+
+/* ── Hover guide ── */
+
+.vx-ts-chart__hover-line {
+  stroke: var(--vx-gray-200);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+  pointer-events: none;
+}
+
+/* ── Tooltip ── */
+
+.vx-ts-chart__tooltip {
+  position: absolute;
+  transform: translate(-50%, -120%);
+  /* Fixed dark so it stays a dark popover with white text in BOTH themes
+     (letting gray-900 invert would make it light + hide the white text). */
+  background: #111827;
+  color: #fff;
+  padding: var(--vx-space-2) var(--vx-space-3);
+  border-radius: var(--vx-radius-md);
+  font-size: var(--vx-font-xs);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  line-height: 1.5;
+}
+
+.vx-ts-chart__tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: #111827;
+}
+
+.vx-ts-chart__tooltip-date {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.vx-ts-chart__tooltip-platform {
+  color: var(--vx-gray-400);
+}
+
+.vx-ts-chart__tooltip-value {
+  font-weight: 700;
+  font-size: var(--vx-font-sm);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 640px) {
+  .vx-ts-chart__controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vx-ts-chart__legend {
+    gap: var(--vx-space-3);
+  }
+}

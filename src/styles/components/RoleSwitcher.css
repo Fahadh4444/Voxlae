@@ -1,0 +1,249 @@
+/* ============================================
+   VOXLAE RoleSwitcher (Gradient-First)
+   ============================================ */
+
+.vx-role-switcher {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Trigger Button */
+.vx-role-switcher__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vx-space-2);
+  padding: var(--vx-space-2) var(--vx-space-3);
+  background: var(--vx-gradient-surface);
+  border: 2px solid var(--vx-gray-200);
+  border-radius: var(--vx-radius-full);
+  font-size: var(--vx-font-sm);
+  font-weight: 500;
+  color: var(--vx-gray-700);
+  cursor: pointer;
+  transition: all var(--vx-transition-fast);
+}
+
+.vx-role-switcher__trigger:hover:not(:disabled) {
+  border-color: var(--vx-gray-300);
+  box-shadow: var(--vx-shadow-sm);
+}
+
+.vx-role-switcher__trigger:focus {
+  outline: none;
+  border-color: var(--vx-primary);
+  box-shadow: 0 0 0 3px var(--vx-primary-muted), var(--vx-shadow-glow-soft);
+}
+
+.vx-role-switcher__trigger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Icon and label */
+.vx-role-switcher__icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.vx-role-switcher__label {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Chevron */
+.vx-role-switcher__chevron {
+  display: flex;
+  color: var(--vx-gray-400);
+  transition: transform var(--vx-transition-fast);
+}
+
+.vx-role-switcher__chevron--up {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.vx-role-switcher__dropdown {
+  position: absolute;
+  top: calc(100% + var(--vx-space-2));
+  right: 0;
+  min-width: 200px;
+  background: var(--vx-surface);
+  border: 1px solid var(--vx-gray-200);
+  border-radius: var(--vx-radius-lg);
+  box-shadow: var(--vx-shadow-lg);
+  z-index: 1000;
+  overflow: hidden;
+  animation: vx-role-switcher-fade-in 0.15s ease-out;
+}
+
+@keyframes vx-role-switcher-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown header */
+.vx-role-switcher__dropdown-header {
+  padding: var(--vx-space-2) var(--vx-space-3);
+  font-size: var(--vx-font-xs);
+  font-weight: 600;
+  color: var(--vx-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--vx-gray-100);
+}
+
+/* Option */
+.vx-role-switcher__option {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-2);
+  width: 100%;
+  padding: var(--vx-space-3);
+  background: none;
+  border: none;
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-700);
+  cursor: pointer;
+  text-align: left;
+  transition: background-color var(--vx-transition-fast);
+}
+
+.vx-role-switcher__option:hover:not(:disabled) {
+  background: var(--vx-gray-50);
+}
+
+.vx-role-switcher__option:focus {
+  outline: none;
+  background: var(--vx-gray-100);
+}
+
+.vx-role-switcher__option:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Active option */
+.vx-role-switcher__option--active {
+  background: var(--vx-primary-muted);
+  color: var(--vx-primary);
+  font-weight: 600;
+}
+
+.vx-role-switcher__option--active:hover {
+  background: var(--vx-primary-muted);
+}
+
+/* Option icon and label */
+.vx-role-switcher__option-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.vx-role-switcher__option-label {
+  flex: 1;
+}
+
+.vx-role-switcher__option-check {
+  display: flex;
+  color: var(--vx-primary);
+}
+
+/* Compact mode */
+.vx-role-switcher--compact .vx-role-switcher__trigger {
+  padding: var(--vx-space-1) var(--vx-space-2);
+  font-size: var(--vx-font-xs);
+}
+
+.vx-role-switcher--compact .vx-role-switcher__icon {
+  font-size: 0.875rem;
+}
+
+.vx-role-switcher--compact .vx-role-switcher__label {
+  max-width: 80px;
+}
+
+/* Dark mode */
+.vx-role-switcher--dark .vx-role-switcher__trigger {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--vx-white);
+}
+
+.vx-role-switcher--dark .vx-role-switcher__trigger:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.vx-role-switcher--dark .vx-role-switcher__chevron {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .vx-role-switcher__label {
+    display: none;
+  }
+  
+  .vx-role-switcher__trigger {
+    padding: var(--vx-space-2);
+  }
+  
+  .vx-role-switcher__dropdown {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Option content (label + status) */
+.vx-role-switcher__option-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2px;
+}
+
+/* Status indicator for incomplete roles */
+.vx-role-switcher__option-status {
+  font-size: var(--vx-font-xs);
+  color: var(--vx-warning);
+  font-weight: 500;
+}
+
+/* Incomplete option styling */
+.vx-role-switcher__option--incomplete {
+  opacity: 0.8;
+}
+
+.vx-role-switcher__option--incomplete .vx-role-switcher__option-icon {
+  opacity: 0.7;
+}
+
+/* Divider */
+.vx-role-switcher__divider {
+  height: 1px;
+  background: var(--vx-gray-200);
+  margin: var(--vx-space-2) 0;
+}
+
+/* Add Role option */
+.vx-role-switcher__option--add {
+  color: var(--vx-primary);
+  font-weight: 500;
+}
+
+.vx-role-switcher__option--add:hover:not(:disabled) {
+  background: var(--vx-primary-muted);
+}
+
+.vx-role-switcher__option--add .vx-role-switcher__option-icon {
+  font-size: 0.875rem;
+}

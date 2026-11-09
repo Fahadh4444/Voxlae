@@ -1,0 +1,181 @@
+/* ============================================
+   VOXLAE DataTable — Premium Data Table
+   ============================================ */
+
+.vx-data-table {
+  background: var(--vx-surface);
+  border-radius: var(--vx-radius-xl);
+  border: 1px solid var(--vx-gray-100);
+  overflow: hidden;
+}
+
+.vx-data-table__wrapper {
+  overflow-x: auto;
+}
+
+.vx-data-table__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--vx-font-sm);
+}
+
+/* ── Header ───────────────────────────────── */
+
+.vx-data-table__head {
+  background: var(--vx-gray-50);
+  border-bottom: 1px solid var(--vx-gray-100);
+}
+
+.vx-data-table__th {
+  padding: var(--vx-space-3) var(--vx-space-4);
+  font-weight: 600;
+  color: var(--vx-gray-600);
+  text-transform: uppercase;
+  font-size: var(--vx-font-xs);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.vx-data-table__th--sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.vx-data-table__th--sortable:hover {
+  color: var(--vx-gray-900);
+}
+
+.vx-data-table__th-content {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-1);
+}
+
+.vx-data-table__sort-icon {
+  opacity: 0.4;
+  font-size: 0.9em;
+  transition: opacity 0.2s ease;
+}
+
+.vx-data-table__th--sortable:hover .vx-data-table__sort-icon {
+  opacity: 0.8;
+}
+
+/* ── Body ─────────────────────────────────── */
+
+.vx-data-table__body {
+  background: var(--vx-surface);
+}
+
+.vx-data-table__row {
+  border-bottom: 1px solid var(--vx-gray-50);
+  transition: background 0.2s ease;
+}
+
+.vx-data-table__row:last-child {
+  border-bottom: none;
+}
+
+.vx-data-table__row:hover {
+  background: var(--vx-gray-50);
+}
+
+.vx-data-table--clickable .vx-data-table__row {
+  cursor: pointer;
+}
+
+.vx-data-table--clickable .vx-data-table__row:hover {
+  background: var(--vx-primary-muted);
+}
+
+.vx-data-table__td {
+  padding: var(--vx-space-3) var(--vx-space-4);
+  color: var(--vx-gray-700);
+  vertical-align: middle;
+}
+
+/* ── Loading State ────────────────────────── */
+
+.vx-data-table--loading {
+  min-height: 200px;
+}
+
+.vx-data-table__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vx-space-3);
+  padding: var(--vx-space-8);
+  color: var(--vx-gray-500);
+}
+
+.vx-data-table__spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--vx-gray-200);
+  border-top-color: var(--vx-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ── Empty State ──────────────────────────── */
+
+.vx-data-table__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vx-space-3);
+  padding: var(--vx-space-8);
+  color: var(--vx-gray-500);
+}
+
+.vx-data-table__empty-icon {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+/* ── Cell Types ───────────────────────────── */
+
+.vx-data-table__cell-thumbnail {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-3);
+}
+
+.vx-data-table__thumbnail {
+  width: 48px;
+  height: 27px;
+  border-radius: var(--vx-radius-sm);
+  object-fit: cover;
+  background: var(--vx-gray-100);
+}
+
+.vx-data-table__cell-badge {
+  display: inline-flex;
+  padding: 2px 8px;
+  border-radius: var(--vx-radius-full);
+  font-size: var(--vx-font-xs);
+  font-weight: 600;
+}
+
+.vx-data-table__cell-badge--success {
+  background: var(--vx-success-bg);
+  color: var(--vx-success);
+}
+
+.vx-data-table__cell-badge--warning {
+  background: var(--vx-warning-bg);
+  color: var(--vx-warning);
+}
+
+.vx-data-table__cell-badge--error {
+  background: var(--vx-error-bg);
+  color: var(--vx-error);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

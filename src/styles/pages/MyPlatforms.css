@@ -1,0 +1,353 @@
+/* ============================================
+   MyPlatformsPage — Platform Management Styles
+   ============================================ */
+
+.platforms-page__header {
+  margin-bottom: var(--vx-space-8);
+}
+
+.platforms-page__title {
+  font-size: var(--vx-font-3xl);
+  font-weight: 800;
+  color: var(--vx-gray-900);
+  margin: 0;
+}
+
+.platforms-page__subtitle {
+  font-size: var(--vx-font-base);
+  color: var(--vx-gray-500);
+  margin: var(--vx-space-1) 0 0;
+}
+
+/* ── Platform Grid ──────────────── */
+
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--vx-space-4);
+}
+
+/* ── Platform Card ──────────────── */
+
+.platform-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-4);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.platform-card:hover {
+  box-shadow: var(--vx-shadow-md);
+}
+
+.platform-card--coming-soon {
+  opacity: 0.6;
+}
+
+.platform-card--coming-soon:hover {
+  box-shadow: none;
+  opacity: 0.65;
+}
+
+.platform-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-3);
+}
+
+.platform-card__icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--vx-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platform-card__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.platform-card__name-row {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--vx-space-2);
+}
+
+.platform-card__name {
+  font-size: var(--vx-font-base);
+  font-weight: 700;
+  color: var(--vx-gray-900);
+  margin: 0;
+}
+
+.platform-card__sync-info {
+  font-size: var(--vx-font-xs);
+  color: var(--vx-gray-400);
+}
+
+.platform-card__stats {
+  display: flex;
+  gap: var(--vx-space-4);
+}
+
+.platform-card__stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.platform-card__stat-val {
+  font-size: var(--vx-font-lg);
+  font-weight: 700;
+  color: var(--vx-gray-900);
+}
+
+.platform-card__stat-label {
+  font-size: var(--vx-font-xs);
+  color: var(--vx-gray-500);
+}
+
+.platform-card__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-2);
+  margin-top: auto;
+}
+
+.platform-card__disconnect {
+  margin-left: auto;
+  color: var(--vx-error) !important;
+}
+
+/* ── Reconnect State ──────────────── */
+
+.platform-card--reconnect {
+  border-color: var(--vx-warning);
+  background: rgba(245, 158, 11, 0.04);
+}
+
+.platform-card--reconnect:hover {
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.15);
+}
+
+.platform-card__warning {
+  font-size: var(--vx-font-sm);
+  color: var(--vx-warning);
+  padding: var(--vx-space-2) var(--vx-space-3);
+  background: rgba(245, 158, 11, 0.08);
+  border-radius: var(--vx-radius-sm);
+  border-left: 3px solid var(--vx-warning);
+}
+
+/* ── Date Range Selector ──────────────── */
+
+.date-range-selector {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-3);
+  margin-bottom: var(--vx-space-4);
+}
+
+/* Pills — visible on desktop */
+.date-range-selector__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vx-space-2);
+}
+
+/* Custom dropdown wrapper — hidden on desktop, shown on mobile */
+.date-range-selector__dropdown-wrap {
+  display: none;
+  position: relative;
+}
+
+.date-range-pill {
+  padding: var(--vx-space-1) var(--vx-space-3);
+  border-radius: 999px;
+  border: 1.5px solid var(--vx-gray-200);
+  background: transparent;
+  color: var(--vx-gray-600);
+  font-size: var(--vx-font-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.date-range-pill:hover {
+  border-color: var(--vx-primary);
+  color: var(--vx-primary);
+  background: rgba(var(--vx-primary-rgb, 99, 102, 241), 0.06);
+}
+
+.date-range-pill--active {
+  background: var(--vx-primary);
+  border-color: var(--vx-primary);
+  color: #fff;
+}
+
+.date-range-pill--active:hover {
+  background: var(--vx-primary);
+  color: #fff;
+}
+
+.date-range-custom {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-2);
+  flex-wrap: wrap;
+}
+
+.date-range-custom__label {
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-500);
+  font-weight: 500;
+}
+
+.date-range-custom__input {
+  padding: var(--vx-space-1) var(--vx-space-2);
+  border: 1.5px solid var(--vx-gray-200);
+  border-radius: var(--vx-radius-md);
+  font-size: var(--vx-font-sm);
+  color: var(--vx-gray-800);
+  background: var(--vx-surface);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+  min-width: 0;
+  flex: 1 1 130px;
+}
+
+.date-range-custom__input:focus {
+  border-color: var(--vx-primary);
+}
+
+.date-range-custom__apply {
+  padding: var(--vx-space-1) var(--vx-space-3);
+  background: var(--vx-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--vx-radius-md);
+  font-size: var(--vx-font-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+
+.date-range-custom__apply:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.date-range-custom__apply:not(:disabled):hover {
+  opacity: 0.85;
+}
+
+/* ── Responsive ──────────────── */
+
+@media (max-width: 768px) {
+  .platforms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Swap pills → custom dropdown on mobile */
+  .date-range-selector__pills {
+    display: none;
+  }
+
+  .date-range-selector__dropdown-wrap {
+    display: block;
+  }
+
+  /* Transparent full-screen overlay to close dropdown on outside tap */
+  .date-range-dropdown-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: transparent;
+  }
+
+  .date-range-selector__dropdown-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--vx-space-2) var(--vx-space-3);
+    border: 1.5px solid var(--vx-gray-200);
+    border-radius: var(--vx-radius-md);
+    font-size: var(--vx-font-base);
+    font-weight: 500;
+    color: var(--vx-gray-800);
+    background: var(--vx-surface);
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s;
+  }
+
+  .date-range-selector__dropdown-trigger:focus {
+    outline: none;
+    border-color: var(--vx-primary);
+  }
+
+  .date-range-selector__dropdown-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--vx-surface, #ffffff);
+    background-color: var(--vx-surface, #ffffff);
+    border: 1.5px solid var(--vx-gray-200);
+    border-radius: var(--vx-radius-md);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    z-index: 50;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .date-range-dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: var(--vx-font-base);
+    color: var(--vx-gray-700);
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+
+  .date-range-dropdown-item:active,
+  .date-range-dropdown-item:hover {
+    background: var(--vx-gray-50);
+  }
+
+  .date-range-dropdown-item--active {
+    color: var(--vx-primary);
+    font-weight: 600;
+    background: rgba(var(--vx-primary-rgb, 99, 102, 241), 0.06);
+  }
+
+  /* Custom date picker: stack vertically on mobile */
+  .date-range-custom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--vx-space-2);
+  }
+
+  .date-range-custom__input {
+    flex: unset;
+    width: 100%;
+  }
+
+  .date-range-custom__apply {
+    width: 100%;
+    text-align: center;
+    padding: var(--vx-space-2) var(--vx-space-3);
+  }
+}

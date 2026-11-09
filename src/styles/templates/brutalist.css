@@ -1,0 +1,129 @@
+/* Brutalist template — hard shadows, thick borders, zero radius. Prefix: tpl-bru__ */
+
+.tpl-bru {
+  --br-ink: #14110c;
+  --br-paper: #f3ede1;
+  --br-accent: var(--vx-primary, #FF6B2C);
+  --br-lime: #d6f24e;
+  --br-blue: #7db8ff;
+  --br-shadow: 6px 6px 0 var(--br-ink);
+  background: var(--br-paper);
+  color: var(--br-ink);
+  min-height: 100vh;
+  background-image: radial-gradient(var(--br-ink) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: -1px -1px;
+}
+.tpl-bru__page { max-width: 1000px; margin: 0 auto; padding: 40px clamp(16px, 4vw, 40px) 100px; }
+
+/* Shared box look */
+.tpl-bru__hero, .tpl-bru__box, .tpl-bru__card, .tpl-bru__cover, .tpl-bru__exp-row, .tpl-bru__cta {
+  border: 3px solid var(--br-ink);
+  background: #fff;
+  box-shadow: var(--br-shadow);
+}
+
+/* ── Hero ── */
+.tpl-bru__hero { position: relative; padding: 26px; margin-bottom: 34px; }
+.tpl-bru__sticker {
+  position: absolute; top: -16px; right: 20px; transform: rotate(4deg);
+  border: 3px solid var(--br-ink); background: var(--br-lime); color: var(--br-ink);
+  font-weight: 900; font-size: 0.8rem; letter-spacing: 0.02em; padding: 6px 12px;
+  box-shadow: 3px 3px 0 var(--br-ink); text-transform: uppercase;
+}
+.tpl-bru__sticker--available { background: #7bf2a8; }
+.tpl-bru__sticker--booked { background: #ff9a8b; }
+.tpl-bru__hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.tpl-bru__avatar { border-radius: 0; border: 3px solid var(--br-ink); }
+.tpl-bru__hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+.tpl-bru__name {
+  margin: 20px 0 0; font-size: clamp(2.6rem, 9vw, 5.5rem); font-weight: 900;
+  letter-spacing: -0.03em; line-height: 0.92; text-transform: uppercase;
+}
+.tpl-bru__headline { margin: 14px 0 0; font-size: clamp(1.1rem, 2.6vw, 1.5rem); font-weight: 700; max-width: 30ch; }
+.tpl-bru__facts { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-weight: 700; font-size: 0.9rem; }
+
+/* Buttons */
+.tpl-bru__btn {
+  font: inherit; font-weight: 900; letter-spacing: 0.02em; cursor: pointer; text-decoration: none;
+  border: 3px solid var(--br-ink); background: #fff; color: var(--br-ink);
+  padding: 11px 18px; box-shadow: 4px 4px 0 var(--br-ink);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  display: inline-block; text-transform: uppercase;
+}
+.tpl-bru__btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--br-ink); }
+.tpl-bru__btn:active { transform: translate(4px, 4px); box-shadow: none; }
+.tpl-bru__btn--accent { background: var(--br-accent); color: #fff; }
+.tpl-bru__btn--lg { font-size: 1.15rem; padding: 16px 26px; }
+
+.tpl-bru__cover { padding: 0; overflow: hidden; margin-bottom: 34px; }
+.tpl-bru__cover img { width: 100%; max-height: 460px; object-fit: cover; display: block; }
+
+/* ── Sections ── */
+.tpl-bru__section { margin-bottom: 40px; }
+.tpl-bru__h2 {
+  display: inline-block; margin: 0 0 18px; font-size: 1.1rem; font-weight: 900; letter-spacing: 0.04em;
+  background: var(--br-ink); color: var(--br-paper); padding: 5px 12px; text-transform: uppercase;
+}
+.tpl-bru__box { padding: 22px; }
+.tpl-bru__bio { margin: 0; font-size: 1.2rem; line-height: 1.6; font-weight: 500; white-space: pre-line; }
+.tpl-bru__more {
+  font: inherit; font-weight: 900; cursor: pointer; background: none; border: none; padding: 0; margin-top: 14px;
+  color: var(--br-ink); border-bottom: 4px solid var(--br-accent); text-transform: uppercase;
+}
+
+/* Work grid */
+.tpl-bru__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+.tpl-bru__card { display: block; text-decoration: none; color: inherit; overflow: hidden; }
+.tpl-bru__card:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--br-ink); }
+.tpl-bru__card { transition: transform 0.1s ease, box-shadow 0.1s ease; }
+.tpl-bru__thumb { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; border-bottom: 3px solid var(--br-ink); }
+.tpl-bru__thumb--empty {
+  display: flex; align-items: center; justify-content: center; background: var(--br-lime);
+  font-size: 3rem; font-weight: 900; color: var(--br-ink);
+}
+.tpl-bru__card-body { padding: 16px 18px 18px; }
+.tpl-bru__card-title { margin: 0; font-size: 1.25rem; font-weight: 800; line-height: 1.15; }
+.tpl-bru__card-out { margin: 8px 0 0; font-size: 0.92rem; font-weight: 500; }
+.tpl-bru__card-meta { margin-top: 12px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.tpl-bru__chip { border: 2px solid var(--br-ink); padding: 2px 8px; font-size: 0.74rem; font-weight: 800; background: var(--br-blue); text-transform: uppercase; }
+.tpl-bru__site { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; }
+.tpl-bru__card--locked {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 200px;
+  cursor: pointer; font: inherit; text-align: center; background: var(--br-lime); text-transform: uppercase; font-weight: 800;
+}
+.tpl-bru__lock { font-size: 2rem; }
+
+/* Tags */
+.tpl-bru__tags { display: flex; flex-wrap: wrap; gap: 12px; }
+.tpl-bru__tag {
+  border: 3px solid var(--br-ink); background: #fff; padding: 8px 14px; font-weight: 800;
+  box-shadow: 3px 3px 0 var(--br-ink); font-size: 0.92rem;
+}
+.tpl-bru__tag--alt { background: var(--br-accent); color: #fff; }
+.tpl-bru__tag--ghost { box-shadow: none; background: transparent; }
+
+/* Experience */
+.tpl-bru__exp { display: grid; gap: 16px; }
+.tpl-bru__exp-row { padding: 16px 18px; }
+.tpl-bru__exp-row b { font-size: 1.2rem; font-weight: 800; }
+.tpl-bru__exp-row span { display: block; font-weight: 700; font-size: 0.86rem; margin-top: 2px; }
+.tpl-bru__exp-row p { margin: 8px 0 0; font-weight: 500; line-height: 1.5; }
+
+/* CTA */
+.tpl-bru__cta {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  padding: 32px; background: var(--br-accent); margin-top: 20px;
+}
+.tpl-bru__cta-title { margin: 0; font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 900; line-height: 0.92; color: #fff; text-transform: uppercase; }
+.tpl-bru__cta .tpl-bru__btn--accent { background: var(--br-ink); }
+
+@media (max-width: 640px) {
+  .tpl-bru__page { padding: 28px 14px 80px; }
+  .tpl-bru__grid { grid-template-columns: 1fr; }
+  .tpl-bru__hero-top { flex-direction: column; }
+  .tpl-bru__hero-actions { justify-content: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tpl-bru__btn, .tpl-bru__card { transition: none; }
+}

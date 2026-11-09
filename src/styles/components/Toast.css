@@ -1,0 +1,101 @@
+/* ============================================
+   VOXLAE Toast (Gradient-First)
+   ============================================ */
+
+.vx-toast-container {
+  position: fixed;
+  top: var(--vx-space-6);
+  right: var(--vx-space-6);
+  z-index: var(--vx-z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-3);
+  max-width: 380px;
+  width: 100%;
+}
+
+.vx-toast {
+  display: flex;
+  align-items: center;
+  gap: var(--vx-space-3);
+  padding: var(--vx-space-4);
+  border-radius: var(--vx-radius-xl);
+  box-shadow: var(--vx-shadow-elevated);
+  animation: vx-slideInRight 300ms ease-out;
+  font-size: var(--vx-font-sm);
+  font-weight: 500;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.vx-toast--success {
+  background: linear-gradient(135deg, rgba(45,212,168,0.15), rgba(45,212,168,0.08));
+  color: #0d7351;
+  border-left: 4px solid var(--vx-success);
+  border: 1px solid rgba(45,212,168,0.2);
+  border-left: 4px solid var(--vx-success);
+}
+.vx-toast--error {
+  background: linear-gradient(135deg, rgba(255,77,106,0.15), rgba(255,77,106,0.08));
+  color: #a1213c;
+  border: 1px solid rgba(255,77,106,0.2);
+  border-left: 4px solid var(--vx-error);
+}
+.vx-toast--warning {
+  background: linear-gradient(135deg, rgba(255,176,32,0.15), rgba(255,176,32,0.08));
+  color: #92610e;
+  border: 1px solid rgba(255,176,32,0.2);
+  border-left: 4px solid var(--vx-warning);
+}
+.vx-toast--info {
+  background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(59,130,246,0.08));
+  color: #1e40af;
+  border: 1px solid rgba(59,130,246,0.2);
+  border-left: 4px solid var(--vx-info);
+}
+
+.vx-toast__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--vx-radius-full);
+  font-size: var(--vx-font-xs);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.vx-toast--success .vx-toast__icon { background: var(--vx-gradient-success); color: white; }
+.vx-toast--error   .vx-toast__icon { background: linear-gradient(135deg, var(--vx-error), #E5324F); color: white; }
+.vx-toast--warning .vx-toast__icon { background: linear-gradient(135deg, var(--vx-warning), var(--vx-accent-dark)); color: white; }
+.vx-toast--info    .vx-toast__icon { background: linear-gradient(135deg, var(--vx-info), #2563EB); color: white; }
+
+.vx-toast__message {
+  flex: 1;
+}
+
+.vx-toast__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--vx-radius-full);
+  color: inherit;
+  opacity: 0.6;
+  transition: opacity var(--vx-transition-fast);
+}
+.vx-toast__close:hover {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .vx-toast-container {
+    left: var(--vx-space-4);
+    right: var(--vx-space-4);
+    max-width: none;
+  }
+}

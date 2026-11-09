@@ -1,0 +1,95 @@
+/* ============================================
+   VOXLAE Input (Gradient-First)
+   ============================================ */
+
+.vx-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-2);
+}
+.vx-input-group--full {
+  width: 100%;
+}
+
+.vx-input-label {
+  font-size: var(--vx-font-sm);
+  font-weight: 600;
+  color: var(--vx-gray-700);
+}
+
+.vx-input {
+  width: 100%;
+  padding: var(--vx-space-3) var(--vx-space-4);
+  background: var(--vx-gradient-surface);
+  border: 2px solid var(--vx-gray-200);
+  border-radius: var(--vx-radius-lg);
+  font-size: var(--vx-font-base);
+  color: var(--vx-gray-800);
+  transition: all var(--vx-transition-fast);
+}
+.vx-input:hover:not(:disabled) {
+  border-color: var(--vx-gray-300);
+  box-shadow: var(--vx-shadow-sm);
+}
+.vx-input:focus {
+  outline: none;
+  border-color: var(--vx-primary);
+  box-shadow: 0 0 0 3px var(--vx-primary-muted), var(--vx-shadow-glow-soft);
+  background: var(--vx-surface);
+}
+.vx-input::placeholder {
+  color: var(--vx-gray-400);
+}
+.vx-input:disabled {
+  background: var(--vx-gray-100);
+  color: var(--vx-gray-400);
+  cursor: not-allowed;
+}
+
+.vx-input--error {
+  border-color: var(--vx-error);
+}
+.vx-input--error:focus {
+  box-shadow: 0 0 0 3px var(--vx-error-bg);
+}
+
+.vx-input-error {
+  font-size: var(--vx-font-xs);
+  color: var(--vx-error);
+  font-weight: 500;
+}
+
+.vx-input-hint {
+  font-size: var(--vx-font-xs);
+  color: var(--vx-gray-400);
+}
+
+.vx-input-wrap {
+  position: relative;
+  display: flex;
+}
+.vx-input--with-toggle {
+  padding-right: calc(var(--vx-space-4) + 28px);
+}
+.vx-input-toggle {
+  position: absolute;
+  right: var(--vx-space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 4px;
+  color: var(--vx-gray-400);
+  cursor: pointer;
+  border-radius: var(--vx-radius-sm, 4px);
+}
+.vx-input-toggle:hover {
+  color: var(--vx-gray-700);
+}
+.vx-input-toggle:focus-visible {
+  outline: 2px solid var(--vx-primary);
+  outline-offset: 1px;
+}

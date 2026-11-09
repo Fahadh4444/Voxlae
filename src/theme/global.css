@@ -1,0 +1,525 @@
+/*
+ * VOXLAE — Global Design System CSS (Gradient-First Evolution)
+ * 
+ * Maps design tokens to CSS custom properties.
+ * All component styles reference these variables.
+ */
+
+/* ============================================
+   Google Fonts Import
+   ============================================ */
+/* Inter is now self-hosted by next/font (see src/app/layout.tsx) — no external request. */
+
+/* ============================================
+   CSS Custom Properties
+   ============================================ */
+:root {
+  /* ── Primary (Fox Orange Family) ──────── */
+  --vx-primary:         #FF6B2C;
+  --vx-primary-light:   #FF8F5C;
+  --vx-primary-dark:    #D4501A;
+  --vx-primary-deep:    #B5400F;
+  --vx-primary-muted:   rgba(255,107,44,0.12);
+  --vx-primary-glow:    rgba(255,107,44,0.35);
+
+  /* ── Secondary (Deep Navy Family) ─────── */
+  --vx-secondary:       #0F1B3D;
+  --vx-secondary-light: #1A2D5A;
+  --vx-secondary-soft:  #1E3468;
+  --vx-secondary-dark:  #0A1229;
+  --vx-secondary-deep:  #060D1B;
+
+  /* ── Accents ──────────────────────────── */
+  --vx-accent:          #FFB347;
+  --vx-accent-light:    #FFD699;
+  --vx-accent-dark:     #E89A2E;
+
+  /* ── Semantic ──────────────────────────── */
+  --vx-success:    #2DD4A8;
+  --vx-success-bg: rgba(45,212,168,0.12);
+  --vx-error:      #FF4D6A;
+  --vx-error-bg:   rgba(255,77,106,0.12);
+  --vx-warning:    #FFB020;
+  --vx-warning-bg: rgba(255,176,32,0.12);
+  --vx-info:       #3B82F6;
+  --vx-info-bg:    rgba(59,130,246,0.12);
+
+  /* ── Neutrals ──────────────────────────── */
+  --vx-white:   #FFFFFF;
+  --vx-gray-50: #F9FAFB;
+  --vx-gray-100:#F3F4F6;
+  --vx-gray-200:#E5E7EB;
+  --vx-gray-300:#D1D5DB;
+  --vx-gray-400:#9CA3AF;
+  --vx-gray-500:#6B7280;
+  --vx-gray-600:#4B5563;
+  --vx-gray-700:#374151;
+  --vx-gray-800:#1F2937;
+  --vx-gray-900:#111827;
+
+  /* ── Backgrounds ───────────────────────── */
+  --vx-bg-light:       #F9FAFB;
+  --vx-bg-light-warm:  #FFF8F3;
+  --vx-bg-dark:        #0F1B3D;
+  --vx-bg-dark-card:   #162044;
+  --vx-bg-dark-card-hover: #1C2A55;
+  --vx-bg-overlay:     rgba(15,27,61,0.7);
+
+  /* ── Semantic Surfaces & Text (theme-aware) ──────────────
+     These are the tokens that FLIP between light and dark. Components should
+     prefer these over raw neutrals for anything that must adapt to the theme.
+     Light values below; dark overrides live in :root[data-theme="dark"]. */
+  --vx-surface:        var(--vx-white);   /* base card / panel surface        */
+  --vx-surface-raised: var(--vx-white);   /* elevated: modals, dropdowns, menus */
+  --vx-surface-sunken: var(--vx-gray-50); /* insets, table heads, wells       */
+  --vx-surface-hover:  var(--vx-gray-100);/* hover fill on neutral surfaces   */
+  --vx-page-bg:        linear-gradient(180deg, #F8F9FB 0%, #F1F3F7 50%, #ECEEF3 100%);
+  --vx-border-color:   var(--vx-gray-200);/* default divider / card border    */
+  --vx-border-subtle:  var(--vx-gray-100);/* faint divider                    */
+  --vx-text:           var(--vx-gray-900);/* primary body/heading text        */
+  --vx-text-primary:   var(--vx-gray-800);/* alias some components already reference (adapts via the ramp) */
+  --vx-text-secondary: var(--vx-gray-700);
+  --vx-text-muted:     var(--vx-gray-500);
+  --vx-text-subtle:    var(--vx-gray-400);
+  --vx-overlay:        rgba(0,0,0,0.4);   /* scrim behind modals / drawers    */
+  --vx-surface-scrim:  rgba(255,255,255,0.8); /* frosted glass over a surface (locked overlays) */
+  --vx-chart-grid:     #ECEEF2;           /* recharts grid lines (original light value) */
+  --vx-chart-axis:     #98A0AD;           /* recharts axis ink   (original light value) */
+  --vx-tint-warm:      #FFF7ED;           /* warm info/hover panel fill (original light) */
+  --vx-tint-warm-ink:  #9A3412;           /* text on the warm tint      (original light) */
+
+  /* ── Gradients ─────────────────────────── */
+  --vx-gradient-primary:      linear-gradient(135deg, #FF6B2C 0%, #FF8F5C 100%);
+  --vx-gradient-primary-deep: linear-gradient(135deg, #D4501A 0%, #FF6B2C 100%);
+  --vx-gradient-hero:         linear-gradient(160deg, #060D1B 0%, #0F1B3D 30%, #1A2D5A 70%, #0F1B3D 100%);
+  --vx-gradient-accent:       linear-gradient(135deg, #FF6B2C 0%, #FFB347 100%);
+  --vx-gradient-accent-soft:  linear-gradient(135deg, rgba(255,107,44,0.08) 0%, rgba(255,179,71,0.04) 100%);
+  --vx-gradient-surface:      linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
+  --vx-gradient-surface-warm: linear-gradient(180deg, #FFFFFF 0%, #FFF8F3 100%);
+  --vx-gradient-dark-card:    linear-gradient(145deg, #1A2D5A 0%, #162044 100%);
+  --vx-gradient-navy:         linear-gradient(180deg, #0A1229 0%, #0F1B3D 50%, #1A2D5A 100%);
+  --vx-gradient-cta-hover:    linear-gradient(135deg, #D4501A 0%, #FF6B2C 100%);
+  --vx-gradient-success:      linear-gradient(135deg, #2DD4A8 0%, #22B890 100%);
+  --vx-gradient-page-light:   linear-gradient(180deg, #F9FAFB 0%, #F3F4F6 100%);
+  --vx-gradient-page-dark:    linear-gradient(180deg, #0A1229 0%, #0F1B3D 100%);
+
+  /* ── Hero Gradients (Bold SaaS) ────────── */
+  --vx-gradient-hero-bold:    linear-gradient(160deg, #040A18 0%, #0A1229 25%, #0F1B3D 50%, #1A2D5A 80%, #162044 100%);
+  --vx-gradient-diagonal:     linear-gradient(135deg, #0A1229 0%, #1A2D5A 100%);
+  --vx-gradient-orange-burst: linear-gradient(135deg, #FF6B2C 0%, #FFB347 50%, #FF8F5C 100%);
+  --vx-gradient-glass-card:   linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+  --vx-gradient-shape-blob:   radial-gradient(circle, rgba(255,107,44,0.18) 0%, rgba(255,107,44,0) 70%);
+  --vx-gradient-shape-cool:   radial-gradient(circle, rgba(26,45,90,0.3) 0%, rgba(26,45,90,0) 70%);
+
+  /* ── Shadows ───────────────────────────── */
+  --vx-shadow-sm:        0 1px 2px rgba(0,0,0,0.06);
+  --vx-shadow-md:        0 4px 12px rgba(0,0,0,0.08);
+  --vx-shadow-lg:        0 10px 30px rgba(0,0,0,0.10);
+  --vx-shadow-xl:        0 20px 50px rgba(0,0,0,0.14);
+  --vx-shadow-glow:      0 0 40px rgba(255,107,44,0.25);
+  --vx-shadow-glow-soft: 0 0 20px rgba(255,107,44,0.15);
+  --vx-shadow-glow-success: 0 0 20px rgba(45,212,168,0.25);
+  --vx-shadow-card-dark: 0 8px 32px rgba(0,0,0,0.3);
+  --vx-shadow-card-dark-hover: 0 12px 40px rgba(0,0,0,0.4), 0 0 20px rgba(255,107,44,0.08);
+  --vx-shadow-elevated:  0 8px 30px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+  --vx-shadow-inset:     inset 0 2px 4px rgba(0,0,0,0.06);
+
+  /* ── Spacing ───────────────────────────── */
+  --vx-space-1:  0.25rem;
+  --vx-space-2:  0.5rem;
+  --vx-space-3:  0.75rem;
+  --vx-space-4:  1rem;
+  --vx-space-5:  1.25rem;
+  --vx-space-6:  1.5rem;
+  --vx-space-8:  2rem;
+  --vx-space-10: 2.5rem;
+  --vx-space-12: 3rem;
+  --vx-space-16: 4rem;
+  --vx-space-20: 5rem;
+  --vx-space-24: 6rem;
+
+  /* ── Radius ────────────────────────────── */
+  --vx-radius-sm:   0.375rem;
+  --vx-radius-md:   0.5rem;
+  --vx-radius-lg:   0.75rem;
+  --vx-radius-xl:   1rem;
+  --vx-radius-2xl:  1.5rem;
+  --vx-radius-3xl:  2rem;
+  --vx-radius-full: 9999px;
+
+  /* ── Transitions ───────────────────────── */
+  --vx-transition-fast:   150ms cubic-bezier(0.4,0,0.2,1);
+  --vx-transition-normal: 250ms cubic-bezier(0.4,0,0.2,1);
+  --vx-transition-slow:   400ms cubic-bezier(0.4,0,0.2,1);
+  --vx-transition-spring: 500ms cubic-bezier(0.34,1.56,0.64,1);
+  --vx-transition-color:  300ms ease-in-out;
+
+  /* ── Typography ────────────────────────── */
+  --vx-font-family: var(--vx-font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --vx-font-xs:   0.75rem;
+  --vx-font-sm:   0.875rem;
+  --vx-font-base: 1rem;
+  --vx-font-lg:   1.125rem;
+  --vx-font-xl:   1.25rem;
+  --vx-font-2xl:  1.5rem;
+  --vx-font-3xl:  1.875rem;
+  --vx-font-4xl:  2.25rem;
+  --vx-font-5xl:  3rem;
+  --vx-font-6xl:  3.75rem;
+
+  /* ── Z-index ───────────────────────────── */
+  /* Toast & tooltip sit above ALL dialogs. Many dialogs/overlays historically
+     hardcode z-index: 1000 (and a few use 9999 for portalled dialogs / the
+     full-screen loader), so toasts must clear 9999 to stay visible on top of a
+     blurred modal backdrop. Keep tooltip one above toast. */
+  --vx-z-dropdown: 100;
+  --vx-z-sticky:   200;
+  --vx-z-modal:    300;
+  --vx-z-toast:    10000;
+  --vx-z-tooltip:  10001;
+}
+
+/* ============================================
+   DARK THEME
+   --------------------------------------------
+   Activated by data-theme="dark" on <html> (set by ThemeContext; a tiny inline
+   script in index.html applies it pre-paint to avoid a flash). "System" mode
+   resolves the OS preference to this same attribute, so there is a single source
+   of truth and no reliance on @media (prefers-color-scheme).
+
+   Strategy: we mirror the neutral gray ramp (a light-surface token like
+   --vx-gray-50 becomes a dark surface; a dark-text token like --vx-gray-900
+   becomes near-white) so the thousands of existing var(--vx-gray-*) usages flip
+   correctly with no per-component edits. Semantic surface/text tokens and the
+   light-only gradients are repointed to dark equivalents. Brand hues (orange,
+   navy, accent) and semantic colors are intentionally kept identical in both
+   themes. --vx-white is NOT flipped — it stays white for text-on-color — so
+   white *surfaces* are migrated to var(--vx-surface) elsewhere.
+   ============================================ */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* ── Neutral ramp (role-preserving mirror, navy-tinted) ── */
+  --vx-gray-50:  #101B33;   /* deepest surface  (was lightest)   */
+  --vx-gray-100: #16233F;   /* surface / subtle background       */
+  --vx-gray-200: #24314C;   /* borders / dividers                */
+  --vx-gray-300: #33425F;   /* strong borders / disabled fills   */
+  --vx-gray-400: #7C8AA3;   /* subtle text / icons               */
+  --vx-gray-500: #9AA7BD;   /* muted text                        */
+  --vx-gray-600: #B6C1D4;   /* secondary text                    */
+  --vx-gray-700: #D0D8E6;   /* secondary-strong text             */
+  --vx-gray-800: #E5EAF3;   /* strong text                       */
+  --vx-gray-900: #F4F7FC;   /* primary text (near white)         */
+
+  /* ── Semantic surfaces & text ── */
+  --vx-surface:        #17243F;
+  --vx-surface-raised: #1E2D4C;
+  --vx-surface-sunken: #101B33;
+  --vx-surface-hover:  #24345A;
+  --vx-border-color:   #29385A;
+  --vx-border-subtle:  #1E2B48;
+  --vx-text:           #F4F7FC;
+  --vx-text-secondary: #D0D8E6;
+  --vx-text-muted:     #9AA7BD;
+  --vx-text-subtle:    #7C8AA3;
+  --vx-overlay:        rgba(2,6,16,0.7);
+  --vx-surface-scrim:  rgba(11,18,34,0.82);
+  --vx-chart-grid:     #29385A;
+  --vx-chart-axis:     #9AA7BD;
+  --vx-tint-warm:      rgba(255,138,76,0.14);
+  --vx-tint-warm-ink:  #FFB98F;
+  --vx-page-bg:        linear-gradient(180deg, #0A1120 0%, #0C1730 55%, #0A1120 100%);
+
+  /* ── Backgrounds ── */
+  --vx-bg-light:       #101B33;
+  --vx-bg-light-warm:  #16233F;
+  --vx-bg-overlay:     rgba(2,6,16,0.72);
+
+  /* ── Light-only gradients repointed to dark ── */
+  --vx-gradient-surface:      linear-gradient(180deg, #1B2A49 0%, #17243F 100%);
+  --vx-gradient-surface-warm: linear-gradient(180deg, #1E2C4B 0%, #182444 100%);
+  --vx-gradient-page-light:   linear-gradient(180deg, #0A1120 0%, #0C1730 55%, #0A1120 100%);
+  --vx-gradient-accent-soft:  linear-gradient(135deg, rgba(255,107,44,0.12) 0%, rgba(255,179,71,0.06) 100%);
+
+  /* ── Brand tint tweaks for legibility on dark ── */
+  --vx-primary-muted:  rgba(255,107,44,0.18);
+  --vx-success-bg:     rgba(45,212,168,0.18);
+  --vx-error-bg:       rgba(255,77,106,0.18);
+  --vx-warning-bg:     rgba(255,176,32,0.18);
+  --vx-info-bg:        rgba(59,130,246,0.18);
+
+  /* ── Shadows (deeper on dark) ── */
+  --vx-shadow-sm:        0 1px 2px rgba(0,0,0,0.4);
+  --vx-shadow-md:        0 4px 12px rgba(0,0,0,0.45);
+  --vx-shadow-lg:        0 10px 30px rgba(0,0,0,0.5);
+  --vx-shadow-xl:        0 20px 50px rgba(0,0,0,0.6);
+  --vx-shadow-elevated:  0 8px 30px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.35);
+  --vx-shadow-inset:     inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--vx-font-family);
+  line-height: 1.5;
+  /* Faithful to the original light look: --vx-gray-800 & gradient-page-light are
+     unchanged in light mode and inverted/repointed only under data-theme="dark". */
+  color: var(--vx-gray-800);
+  background: var(--vx-gradient-page-light);
+  background-attachment: fixed;
+  min-height: 100vh;
+  transition: background-color var(--vx-transition-color), color var(--vx-transition-color);
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-attachment: scroll;
+  }
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Links ───────────────────────────── */
+a {
+  color: var(--vx-primary);
+  text-decoration: none;
+  transition: color var(--vx-transition-fast);
+}
+a:hover {
+  color: var(--vx-primary-dark);
+}
+
+/* ── Headings ────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--vx-gray-900);
+}
+
+/* ── Inputs / Buttons inherit font ──── */
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ── Images ──────────────────────────── */
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Focus ───────────────────────────── */
+:focus {
+  outline: 2px solid var(--vx-primary);
+  outline-offset: 2px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid var(--vx-primary);
+  outline-offset: 2px;
+}
+
+/* ── Selection ───────────────────────── */
+::selection {
+  background: var(--vx-primary-muted);
+  color: var(--vx-primary-dark);
+}
+
+/* ── Scrollbar (Webkit) ──────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--vx-gray-300);
+  border-radius: var(--vx-radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vx-gray-400);
+}
+
+/* ============================================
+   Utility Animation Keyframes
+   ============================================ */
+@keyframes vx-fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes vx-fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vx-fadeInDown {
+  from { opacity: 0; transform: translateY(-24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vx-scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes vx-slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes vx-slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes vx-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes vx-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.5; }
+}
+
+@keyframes vx-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+@keyframes vx-float {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25%      { transform: translateY(-10px) rotate(1.5deg) scale(1.02); }
+  50%      { transform: translateY(-4px) rotate(0deg) scale(1.01); }
+  75%      { transform: translateY(5px) rotate(-1.5deg) scale(0.99); }
+}
+
+@keyframes vx-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes vx-gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes vx-glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,107,44,0.15); transform: scale(1); }
+  50%      { box-shadow: 0 0 50px rgba(255,107,44,0.35); transform: scale(1.03); }
+}
+
+@keyframes vx-progressFill {
+  from { width: 0; }
+}
+
+@keyframes vx-successGlow {
+  0%   { box-shadow: 0 0 0 0 rgba(45,212,168,0.4); }
+  70%  { box-shadow: 0 0 0 16px rgba(45,212,168,0); }
+  100% { box-shadow: 0 0 0 0 rgba(45,212,168,0); }
+}
+
+/* Heavy floating particles */
+@keyframes vx-particle-drift {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-80px) translateX(30px) rotate(180deg); opacity: 0; }
+}
+
+/* Entrance with overshoot */
+@keyframes vx-popIn {
+  0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
+  60%  { transform: scale(1.15) rotate(2deg); opacity: 1; }
+  80%  { transform: scale(0.95) rotate(-1deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Wiggle for attention */
+@keyframes vx-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  15%      { transform: rotate(-3deg); }
+  30%      { transform: rotate(3deg); }
+  45%      { transform: rotate(-2deg); }
+  60%      { transform: rotate(2deg); }
+  75%      { transform: rotate(-1deg); }
+  90%      { transform: rotate(1deg); }
+}
+
+/* Staggered wave entrance for lists */
+@keyframes vx-staggerUp {
+  from { opacity: 0; transform: translateY(40px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ============================================
+   Accessibility
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Screen reader only ──────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================
+   App Layout
+   ============================================ */
+.vx-app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.vx-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

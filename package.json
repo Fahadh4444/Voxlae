@@ -1,0 +1,43 @@
+{
+  "name": "voxlae",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:migrate": "./scripts/db.sh migrate",
+    "db:info": "./scripts/db.sh info",
+    "db:verify": "drizzle-kit pull --config drizzle.config.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.59",
+    "@ai-sdk/google": "^4.0.76",
+    "@ai-sdk/openai": "^4.0.72",
+    "@openrouter/ai-sdk-provider": "^3.1.0",
+    "ai": "^7.0.109",
+    "bcryptjs": "^3.0.3",
+    "drizzle-orm": "^0.45.3",
+    "framer-motion": "^12.43.0",
+    "jose": "^6.2.12",
+    "next": "16.3.5",
+    "nodemailer": "^10.0.12",
+    "postgres": "^3.4.9",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "recharts": "^3.10.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/nodemailer": "^8.0.2",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "drizzle-kit": "^0.31.11",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.5",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@9.15.4"
+}

@@ -1,0 +1,75 @@
+/* ============================================
+   VOXLAE Modal (Gradient-First)
+   ============================================ */
+
+.vx-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--vx-bg-overlay);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--vx-z-modal);
+  animation: vx-fadeIn 200ms ease-out;
+  padding: var(--vx-space-4);
+}
+
+.vx-modal {
+  background: var(--vx-gradient-surface-warm);
+  border-radius: var(--vx-radius-2xl);
+  box-shadow: var(--vx-shadow-xl);
+  width: 100%;
+  max-width: 480px;
+  animation: vx-scaleIn 250ms ease-out;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.vx-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--vx-space-6) var(--vx-space-6) var(--vx-space-4);
+}
+
+.vx-modal__title {
+  font-size: var(--vx-font-xl);
+  font-weight: 700;
+  color: var(--vx-gray-900);
+}
+
+.vx-modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--vx-gray-100);
+  border-radius: var(--vx-radius-full);
+  color: var(--vx-gray-500);
+  cursor: pointer;
+  transition: all var(--vx-transition-fast);
+}
+.vx-modal__close:hover {
+  background: var(--vx-primary-muted);
+  color: var(--vx-primary-dark);
+}
+
+.vx-modal__body {
+  padding: 0 var(--vx-space-6) var(--vx-space-6);
+  color: var(--vx-gray-600);
+  font-size: var(--vx-font-base);
+  line-height: 1.6;
+}
+
+.vx-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--vx-space-3);
+  padding: var(--vx-space-4) var(--vx-space-6);
+  border-top: 1px solid var(--vx-gray-100);
+  background: var(--vx-gray-50);
+}

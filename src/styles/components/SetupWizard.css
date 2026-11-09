@@ -1,0 +1,296 @@
+/* SetupWizard — role setup wizard chrome (see SetupWizard.tsx) */
+
+/* ── Progress bar ── */
+.setup-wizard__progress {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+
+.setup-wizard__bar {
+  flex: 1;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--vx-gray-200);
+  transition: background-color 0.25s ease;
+}
+
+.setup-wizard__bar.is-done {
+  background: var(--vx-primary, #FF6B2C);
+}
+
+/* ── Step heading ── */
+.setup-wizard__step-title {
+  margin: 0 0 5px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.setup-wizard__step-subtitle {
+  margin: 0 0 20px;
+  font-size: 0.92rem;
+  color: var(--vx-gray-500);
+  line-height: 1.5;
+}
+
+.setup-wizard__step-body { margin-top: 4px; }
+
+/* Validation message shown when the user tries to advance an incomplete step. */
+.setup-wizard__error {
+  margin: 16px 0 0;
+  padding: 9px 12px;
+  border-radius: 9px;
+  background: var(--vx-danger-50, #FEF2F2);
+  border: 1px solid var(--vx-danger-200, #FECACA);
+  color: var(--vx-danger-700, #B91C1C);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ── Footer ── */
+.setup-wizard__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.setup-wizard__count {
+  font-size: 0.82rem;
+  color: var(--vx-gray-500);
+  font-variant-numeric: tabular-nums;
+}
+
+.setup-wizard__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Fields ── */
+.setup-field-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.setup-field__label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--vx-gray-700);
+}
+
+.setup-field__opt {
+  margin-left: 5px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--vx-gray-400);
+}
+
+.setup-field__input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--vx-gray-200);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: var(--vx-surface);
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.setup-field__input:focus {
+  outline: none;
+  border-color: var(--vx-primary, #FF6B2C);
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.12);
+}
+
+.setup-field__textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.55;
+}
+
+/* ── Choice cards (goals) ── */
+.setup-choice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.setup-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 14px 15px;
+  border: 1.5px solid var(--vx-gray-200);
+  border-radius: 12px;
+  background: var(--vx-surface);
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.setup-choice:hover { border-color: var(--vx-gray-300); }
+
+.setup-choice.is-selected {
+  border-color: var(--vx-primary, #FF6B2C);
+  background: var(--vx-primary-50, #FFF1E8);
+}
+
+.setup-choice__title { font-size: 0.92rem; font-weight: 600; color: var(--vx-gray-900); }
+.setup-choice__desc { font-size: 0.8rem; color: var(--vx-gray-500); line-height: 1.4; }
+
+/* Choice card with a leading emoji icon (goal / content type). */
+.setup-choice--icon {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.setup-choice__icon { font-size: 1.2rem; line-height: 1; }
+
+/* ── Multi-select chips (skills, languages, platforms) ── */
+.setup-field__hint {
+  margin-left: 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--vx-gray-400);
+}
+
+.setup-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.setup-chip {
+  padding: 8px 13px;
+  border: 1.5px solid var(--vx-gray-200);
+  border-radius: 999px;
+  background: var(--vx-surface);
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--vx-gray-700);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.setup-chip:hover:not(:disabled) { border-color: var(--vx-gray-300); }
+
+.setup-chip.is-selected {
+  border-color: var(--vx-primary, #FF6B2C);
+  background: var(--vx-primary-50, #FFF1E8);
+  color: var(--vx-primary-700, #C2410C);
+}
+
+.setup-chip:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* "Add your own" inline input for chip fields. */
+.setup-chip-input {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.setup-chip-input__field {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 12px;
+  border: 1px solid var(--vx-gray-200);
+  border-radius: 9px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  background: var(--vx-surface);
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.setup-chip-input__field:focus {
+  outline: none;
+  border-color: var(--vx-primary, #FF6B2C);
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.12);
+}
+
+.setup-chip-input__add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  border: 1px solid var(--vx-gray-200);
+  border-radius: 9px;
+  background: var(--vx-gray-50);
+  color: var(--vx-gray-600);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.setup-chip-input__add:hover:not(:disabled) {
+  border-color: var(--vx-primary, #FF6B2C);
+  color: var(--vx-primary, #FF6B2C);
+}
+
+.setup-chip-input__add:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.setup-chip-count {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--vx-gray-500);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Pills (experience, cadence, size) ── */
+.setup-pill-row {
+  display: flex;
+  gap: 8px;
+}
+
+.setup-pill-row--wrap { flex-wrap: wrap; }
+
+.setup-pill {
+  padding: 9px 15px;
+  border: 1.5px solid var(--vx-gray-200);
+  border-radius: 999px;
+  background: var(--vx-surface);
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--vx-gray-700);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.setup-pill:hover { border-color: var(--vx-gray-300); }
+
+.setup-pill.is-selected {
+  border-color: var(--vx-primary, #FF6B2C);
+  background: var(--vx-primary, #FF6B2C);
+  color: #fff;
+}
+
+/* Themed keyboard-focus ring — overrides the global blue outline that clashes
+   with the orange theme when you tab/click through options. */
+.setup-choice:focus-visible,
+.setup-pill:focus-visible,
+.setup-chip:focus-visible,
+.setup-chip-input__add:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.28);
+}
+
+@media (max-width: 560px) {
+  .setup-choice-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .setup-wizard__bar,
+  .setup-field__input,
+  .setup-choice,
+  .setup-pill { transition: none; }
+}

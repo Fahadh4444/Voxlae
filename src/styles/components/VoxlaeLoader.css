@@ -1,0 +1,207 @@
+/* ============================================================
+   VOXLAE Loader — the brand-wide loading language
+   One motion system, three tiers (page shimmer / section+inline orbit),
+   built on the vector fox mark (<FoxMark>). Matches the boot splash in
+   index.html so the very first paint and every later load feel identical.
+   ============================================================ */
+
+.vx-loader {
+  --vx-loader-orange: var(--vx-primary, #FF6B2C);
+  --vx-loader-amber:  var(--vx-accent, #FFB347);
+  /* silhouette of the fox, used to mask the shimmer glint */
+  --vx-fox-sil: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MzMgNTg3Ij48cGF0aCBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik02MCA2MiA3NSAxNDcgOTYgMjI0IDEyNyAyNDcgMTI2IDI1MCAxMjMgMjUwIDEwMCAyMzcgODYgMjI3IDg1IDIyOCA4MyAyNzMgODUgMjk3IDg4IDMxMSA4NCAzMTEgNzYgMjk4IDc3IDMyOSA4MSAzNTYgODcgMzc5IDEwMSA0MTEgMTE1IDQzMSAxMzQgNDUxIDE1MCA0NjQgMTY3IDQ3NSAxOTYgNDg5IDIyMCA0OTcgMjQ3IDUwMyAyODMgNTA3IDMwOCA1MTQgMzI5IDUyNiAzNDUgNTQyIDM1MyA1NTQgMzU0IDU0MSAzNTkgNTI0IDM2NiA1MTAgMzc2IDQ5NiA0MDIgNDcyIDQ2NiA0MjkgNDk0IDQwNyA1MjAgMzc5IDUzOCAzNDkgNTQ3IDMyNSA1NDYgMzIzIDUzNiAzMjggNTMyIDMyNyA1NDEgMjg2IDU0NCAyNDEgNTMwIDI0NyA1MTMgMjUwIDQ5OSAyNTAgNDk4IDI0NyA1MzAgMjI1IDUzMiAyMjEgNTU0IDEzNyA1NjYgNjIgMzgxIDE2NiAzNjggMTkwIDMxMyAzMDcgMzExIDMwNyAyNjUgMjA4IDI0NCAxNjZaIi8+PC9zdmc+");
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  color: var(--vx-gray-500);
+}
+
+.vx-loader__label {
+  font-size: 0.9rem;
+  font-weight: 550;
+  letter-spacing: 0.005em;
+  text-align: center;
+  animation: vx-loader-label 1.9s ease-in-out infinite;
+}
+
+/* ── PAGE tier — Shimmer Sweep signature ─────────────────── */
+.vx-loader--page {
+  min-height: 320px;
+  padding: 48px 16px;
+}
+
+/* In-page (non-overlay) page loaders fill the content area and center, so the
+   mark sits in the vertical middle of the page instead of pinned near the top.
+   The fullscreen overlay keeps its own full-viewport height (below). */
+.vx-loader--page:not(.vx-loader--fullscreen) {
+  min-height: 78vh;
+  width: 100%;
+}
+.vx-loader__shimmer {
+  position: relative;
+  width: clamp(88px, 13vw, 140px);
+  aspect-ratio: 1 / 1;
+}
+.vx-loader__shimmer::before { /* soft brand glow behind the mark */
+  content: "";
+  position: absolute;
+  inset: -22%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,107,44,0.22) 0%, rgba(255,179,71,0.08) 45%, transparent 70%);
+  animation: vx-loader-glow 3.2s ease-in-out infinite;
+}
+.vx-loader__fox--dim {
+  position: absolute;
+  inset: 0;
+  filter: brightness(0.62) saturate(0.92) drop-shadow(0 6px 16px rgba(255,107,44,0.28));
+}
+.vx-loader__shine {
+  position: absolute;
+  inset: 0;
+  -webkit-mask: var(--vx-fox-sil) center / contain no-repeat;
+          mask: var(--vx-fox-sil) center / contain no-repeat;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,215,180,0.18) 42%,
+    rgba(255,244,230,0.95) 50%,
+    rgba(255,179,71,0.40) 58%,
+    transparent 70%
+  );
+  background-size: 260% 100%;
+  mix-blend-mode: screen;
+  animation: vx-loader-sweep 1.9s cubic-bezier(0.6, 0.05, 0.35, 0.95) infinite;
+}
+
+/* Fullscreen overlay (app boot / route transitions) on the brand backdrop */
+.vx-loader--fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  min-height: 100vh;
+  background:
+    radial-gradient(1100px 620px at 82% -8%, rgba(255,107,44,0.12), transparent 60%),
+    radial-gradient(900px 520px at 5% 108%, rgba(255,179,71,0.08), transparent 55%),
+    linear-gradient(160deg, #0A1229 0%, #0F1B3D 45%, #162044 100%);
+}
+.vx-loader--fullscreen .vx-loader__label { color: rgba(255,255,255,0.72); }
+
+/* ── SECTION / INLINE tiers — Orbit ring ─────────────────── */
+.vx-loader--section { min-height: 220px; padding: 32px 16px; }
+.vx-loader--section .vx-loader__orbit { --sz: 72px; --ring-w: 5px; --dot: 7px; }
+
+.vx-loader--inline { flex-direction: row; gap: 10px; min-height: 0; }
+.vx-loader--inline .vx-loader__orbit { --sz: 24px; --ring-w: 3px; --dot: 4px; }
+.vx-loader--inline .vx-loader__label { font-size: 0.85rem; animation: none; }
+
+.vx-loader__orbit {
+  position: relative;
+  width: var(--sz);
+  height: var(--sz);
+  flex-shrink: 0;
+}
+.vx-loader__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 205deg,
+    rgba(255,179,71,0.15) 250deg,
+    var(--vx-loader-orange) 340deg,
+    var(--vx-loader-amber) 360deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--ring-w)), #000 calc(100% - var(--ring-w) + 1px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - var(--ring-w)), #000 calc(100% - var(--ring-w) + 1px));
+  animation: vx-loader-spin 1.15s linear infinite;
+}
+.vx-loader__dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--dot);
+  height: var(--dot);
+  margin-left: calc(var(--dot) / -2);
+  border-radius: 50%;
+  background: var(--vx-loader-amber);
+  box-shadow: 0 0 10px var(--vx-loader-orange);
+  transform-origin: calc(var(--dot) / 2) calc(var(--sz) / 2);
+  animation: vx-loader-spin 1.15s linear infinite;
+}
+.vx-loader__orbit .vx-loader__fox {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 58%;
+  height: 58%;
+  filter: drop-shadow(0 3px 8px rgba(255,107,44,0.3));
+  animation: vx-loader-breathe 3.4s ease-in-out infinite;
+}
+
+/* ═══════════════ Keyframes ═══════════════ */
+@keyframes vx-loader-sweep {
+  0%   { background-position: 150% 0; }
+  100% { background-position: -150% 0; }
+}
+@keyframes vx-loader-spin { to { transform: rotate(360deg); } }
+@keyframes vx-loader-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+@keyframes vx-loader-glow {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.9;  transform: scale(1.1); }
+}
+@keyframes vx-loader-label {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+/* ═══════════════ Shared skeleton shimmer ═══════════════
+   Same warm sweep + timing so content placeholders belong to the family.
+   Apply .vx-skeleton to any block-level placeholder. */
+.vx-skeleton {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(255,107,44,0.06);
+}
+.vx-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 25%,
+    rgba(255,179,71,0.22) 45%,
+    rgba(255,107,44,0.14) 55%,
+    transparent 75%
+  );
+  background-size: 220% 100%;
+  animation: vx-skeleton-shine 1.5s ease-in-out infinite;
+}
+@keyframes vx-skeleton-shine {
+  0%   { background-position: 120% 0; }
+  100% { background-position: -120% 0; }
+}
+
+/* ═══════════════ Reduced motion ═══════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .vx-loader__shine,
+  .vx-loader__ring,
+  .vx-loader__dot,
+  .vx-loader__fox,
+  .vx-loader__shimmer::before,
+  .vx-loader__label,
+  .vx-skeleton::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  /* keep a legible static state */
+  .vx-loader__ring { opacity: 0.9; }
+  .vx-loader__fox--dim { filter: none; }
+  .vx-loader__shine { opacity: 0; }
+}

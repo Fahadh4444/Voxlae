@@ -1,0 +1,59 @@
+/* Badge — Component styles */
+
+.vx-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+  border-radius: var(--vx-radius-full);
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.vx-badge--sm {
+  font-size: var(--vx-font-xs);
+  padding: 0.2rem 0.55rem;
+}
+
+.vx-badge--md {
+  font-size: var(--vx-font-sm);
+  padding: 0.3rem 0.75rem;
+}
+
+/* Variants */
+.vx-badge--default {
+  background: var(--vx-gray-100);
+  color: var(--vx-gray-600);
+}
+
+.vx-badge--primary {
+  background: var(--vx-primary-muted);
+  color: var(--vx-primary-dark);
+}
+
+.vx-badge--success {
+  background: var(--vx-success-bg);
+  color: var(--vx-success);
+}
+
+.vx-badge--warning {
+  background: var(--vx-warning-bg);
+  color: var(--vx-warning);
+}
+
+.vx-badge--danger {
+  background: var(--vx-error-bg);
+  color: var(--vx-error);
+}
+
+.vx-badge--locked {
+  background: var(--vx-gray-100);
+  color: var(--vx-gray-400);
+}
+
+.vx-badge--muted {
+  background: var(--vx-gray-50);
+  color: var(--vx-gray-400);
+  font-weight: 500;
+}

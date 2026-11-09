@@ -1,0 +1,527 @@
+/**
+ * Launcher — shared styles for the influencer Home dashboard and the
+ * Creator Tools hub. Both pages are status-aware launchers: a grid of tiles
+ * that mirror the sidebar, each with a status badge the nav can't show.
+ * White theme, matching the app's --vx-* tokens.
+ */
+
+.vxl-page {
+  min-height: 100%;
+  padding: 32px 24px 64px;
+}
+
+.vxl-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ── Header ── */
+.vxl-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.vxl-header__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.vxl-greet {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--vx-gray-900);
+  margin: 0;
+}
+
+.vxl-sub {
+  font-size: 0.95rem;
+  color: var(--vx-gray-500);
+  margin: 0;
+}
+
+.vxl-avatar {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 700;
+  background: var(--vx-gradient-primary, linear-gradient(135deg, #FF6B2C 0%, #FF8F5C 100%));
+}
+
+/* ── Breadcrumb (hub page) ── */
+.vxl-crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  align-self: flex-start;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vx-gray-500);
+  background: transparent;
+  border: 0;
+  padding: 4px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.vxl-crumb svg {
+  width: 16px;
+  height: 16px;
+}
+
+.vxl-crumb:hover {
+  color: var(--vx-primary, #FF6B2C);
+}
+
+.vxl-crumb:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.35);
+}
+
+/* ── Summary box (unlocked Home) ── */
+.vxl-summary {
+  padding: 20px 22px;
+  border-radius: 16px;
+  border: 1px solid var(--vx-gray-200);
+  background:
+    radial-gradient(520px 200px at 90% -40%, rgba(255, 107, 44, 0.06), transparent 60%),
+    var(--vx-surface);
+}
+
+.vxl-summary__title {
+  margin: 0 0 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vx-gray-400);
+}
+
+.vxl-summary__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+}
+
+.vxl-summary__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.vxl-summary__item + .vxl-summary__item {
+  padding-left: 18px;
+  border-left: 1px solid var(--vx-gray-200);
+}
+
+.vxl-summary__label {
+  font-size: 0.8rem;
+  color: var(--vx-gray-500);
+}
+
+.vxl-summary__value {
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--vx-gray-900);
+  font-variant-numeric: tabular-nums;
+}
+
+.vxl-summary__meta {
+  font-size: 0.8rem;
+  color: var(--vx-gray-500);
+}
+
+.vxl-summary__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.vxl-summary__chip {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--vx-gray-100);
+  color: var(--vx-gray-900);
+  text-transform: capitalize;
+}
+
+.vxl-summary__link {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 650;
+  color: var(--vx-primary, #FF6B2C);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.vxl-summary__link:hover {
+  text-decoration: underline;
+}
+
+.vxl-summary__link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.35);
+  border-radius: 4px;
+}
+
+/* On narrow widths the dividers/columns stack, so drop the left rule. */
+@media (max-width: 540px) {
+  .vxl-summary__item + .vxl-summary__item {
+    padding-left: 0;
+    border-left: none;
+  }
+}
+
+/* ── Tile grid ── */
+.vxl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.vxl-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  min-height: 132px;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid var(--vx-gray-200);
+  background: var(--vx-surface);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.vxl-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--vx-primary, #FF6B2C);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.vxl-tile:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.35);
+}
+
+.vxl-tile--soon {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.vxl-tile--soon:hover {
+  transform: none;
+  border-color: var(--vx-gray-200);
+  box-shadow: none;
+}
+
+.vxl-tile__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  color: var(--vx-primary, #FF6B2C);
+  background: var(--vx-primary-muted, rgba(255, 107, 44, 0.12));
+}
+
+.vxl-tile__icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.vxl-tile__title {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--vx-gray-900);
+}
+
+.vxl-tile__desc {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: var(--vx-gray-500);
+}
+
+/* ── Status badge ── */
+.vxl-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 999px;
+}
+
+.vxl-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.vxl-badge--ok {
+  color: var(--vx-success, #2DD4A8);
+  background: rgba(45, 212, 168, 0.14);
+}
+
+.vxl-badge--todo {
+  color: #B7791F;
+  background: rgba(245, 166, 35, 0.16);
+}
+
+.vxl-badge--new {
+  color: var(--vx-primary, #FF6B2C);
+  background: var(--vx-primary-muted, rgba(255, 107, 44, 0.12));
+}
+
+.vxl-badge--neutral {
+  color: var(--vx-gray-500);
+  background: var(--vx-gray-100);
+}
+
+.vxl-badge--neutral::before {
+  display: none;
+}
+
+/* ── New-user hero (connect-2 gate) ── */
+.vxl-hero {
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--vx-gray-200);
+  background:
+    radial-gradient(600px 240px at 85% -30%, rgba(255, 107, 44, 0.10), transparent 65%),
+    var(--vx-surface);
+}
+
+.vxl-hero__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--vx-primary, #FF6B2C);
+  background: var(--vx-primary-muted, rgba(255, 107, 44, 0.12));
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.vxl-hero__title {
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--vx-gray-900);
+  margin: 16px 0 6px;
+}
+
+.vxl-hero__desc {
+  color: var(--vx-gray-500);
+  margin: 0 0 20px;
+  max-width: 52ch;
+}
+
+.vxl-prog {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 420px;
+  margin-bottom: 22px;
+}
+
+.vxl-prog__track {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--vx-gray-200);
+  overflow: hidden;
+}
+
+.vxl-prog__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--vx-gradient-primary, linear-gradient(90deg, #FF6B2C 0%, #FF8F5C 100%));
+  transition: width 0.4s ease;
+}
+
+.vxl-prog__count {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--vx-gray-900);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.vxl-connect-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.vxl-chip-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 9px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--vx-success, #2DD4A8);
+  color: var(--vx-success, #2DD4A8);
+  background: rgba(45, 212, 168, 0.08);
+  text-transform: capitalize;
+}
+
+.vxl-cbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 650;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: var(--vx-gradient-primary, linear-gradient(135deg, #FF6B2C 0%, #FF8F5C 100%));
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.vxl-cbtn:hover {
+  transform: translateY(-2px);
+  opacity: 0.94;
+}
+
+.vxl-cbtn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.35);
+}
+
+.vxl-locked-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-size: 0.82rem;
+  color: var(--vx-gray-400);
+}
+
+.vxl-locked-note svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+}
+
+/* Dimmed preview grid behind the hero */
+.vxl-grid--dimmed {
+  margin-top: 20px;
+  opacity: 0.4;
+  filter: saturate(0.7);
+  pointer-events: none;
+}
+
+.vxl-grid--dimmed .vxl-tile {
+  min-height: 108px;
+}
+
+/* ── Error / loading ── */
+.vxl-error {
+  text-align: center;
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.vxl-btn {
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  background: var(--vx-gradient-primary, linear-gradient(135deg, #FF6B2C 0%, #FF8F5C 100%));
+}
+
+.vxl-skel {
+  position: relative;
+  border-radius: 16px;
+  background: var(--vx-gray-100);
+  overflow: hidden;
+}
+
+.vxl-skel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: vxl-shimmer 1.4s infinite;
+}
+
+@keyframes vxl-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .vxl-grid,
+  .vxl-grid--dimmed {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .vxl-grid,
+  .vxl-grid--dimmed {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vxl-tile,
+  .vxl-cbtn,
+  .vxl-prog__fill {
+    transition: none;
+  }
+  .vxl-skel::after {
+    animation: none;
+  }
+}

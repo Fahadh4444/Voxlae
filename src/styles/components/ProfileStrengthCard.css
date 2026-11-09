@@ -1,0 +1,193 @@
+/* ProfileStrengthCard — owner's rail (see ProfileStrengthCard.tsx) */
+
+.vx-strength {
+  background: var(--vx-surface);
+  border: 1px solid var(--vx-gray-100);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(23, 24, 28, 0.05);
+}
+
+.vx-strength__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.vx-strength__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vx-gray-500);
+}
+
+.vx-strength__tier {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.vx-strength__tier.is-strong { background: #E4F3ED; color: #1B7F5E; }
+.vx-strength__tier.is-good   { background: var(--vx-primary-50, #FFF1E8); color: var(--vx-primary-dark, #C24413); }
+.vx-strength__tier.is-fair   { background: #FBF0DC; color: #9A5B00; }
+.vx-strength__tier.is-weak   { background: var(--vx-gray-100); color: var(--vx-gray-600); }
+
+.vx-strength__bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--vx-gray-100);
+  overflow: hidden;
+}
+
+.vx-strength__fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.vx-strength__fill.is-strong { background: #1B7F5E; }
+.vx-strength__fill.is-good   { background: var(--vx-primary, #FF6B2C); }
+.vx-strength__fill.is-fair   { background: #E0A544; }
+.vx-strength__fill.is-weak   { background: var(--vx-gray-300); }
+
+.vx-strength__score {
+  display: block;
+  margin-top: 7px;
+  font-size: 0.78rem;
+  color: var(--vx-gray-500);
+  font-variant-numeric: tabular-nums;
+}
+
+.vx-strength__nudge {
+  margin: 16px 0 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vx-gray-700);
+}
+
+.vx-strength__done {
+  margin: 16px 0 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--vx-gray-600);
+}
+
+.vx-strength__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vx-strength__list li {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.vx-strength__dot {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  margin-top: 6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--vx-gray-300);
+}
+
+.vx-strength__list b {
+  display: block;
+  font-weight: 600;
+  color: var(--vx-gray-800);
+}
+
+.vx-strength__list em {
+  display: block;
+  font-style: normal;
+  color: var(--vx-gray-500);
+  font-size: 0.8rem;
+}
+
+.vx-strength__cta {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: var(--vx-primary, #FF6B2C);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.vx-strength__cta:hover { background: var(--vx-primary-dark, #E4551A); }
+
+/* ── Public link ── */
+.vx-strength__link {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--vx-gray-100);
+}
+
+.vx-strength__link-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--vx-gray-400);
+}
+
+.vx-strength__link code {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--vx-gray-50);
+  border: 1px solid var(--vx-gray-100);
+  font-size: 0.76rem;
+  color: var(--vx-gray-700);
+  word-break: break-all;
+}
+
+.vx-strength__link button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border: 1.5px solid var(--vx-gray-200);
+  border-radius: 9px;
+  background: var(--vx-surface);
+  font-size: 0.84rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--vx-gray-700);
+  cursor: pointer;
+}
+
+.vx-strength__link button:hover {
+  border-color: var(--vx-primary, #FF6B2C);
+  color: var(--vx-primary, #FF6B2C);
+}
+
+.vx-strength__visibility {
+  margin: 10px 0 0;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--vx-gray-500);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vx-strength__fill,
+  .vx-strength__cta { transition: none; }
+}

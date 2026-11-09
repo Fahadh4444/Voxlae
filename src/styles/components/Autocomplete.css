@@ -1,0 +1,30 @@
+/* Autocomplete — single-value input with suggestions (see Autocomplete.tsx).
+   Suggestion-list styling is shared with TagInput.css. */
+
+.vx-autocomplete { position: relative; }
+
+.vx-autocomplete__label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--vx-gray-700);
+}
+
+.vx-autocomplete__field {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--vx-gray-200);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-family: inherit;
+  background: var(--vx-surface);
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.vx-autocomplete__field:focus {
+  outline: none;
+  border-color: var(--vx-primary, #FF6B2C);
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.12);
+}
